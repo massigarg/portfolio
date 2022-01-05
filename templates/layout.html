@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }} ">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% if not title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+    {% elif title=="About" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}">
+    {% elif title=="Article" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/article.css')}}">
+    {% endif %}
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    {% if title %}
+    <title>Massimiliano Gargano - {{title}} </title>
+    {% endif %}
+
+</head>
+
+<body>
+    {% block content %}
+    {% endblock content %}
+
+
+    <footer>
+        <small>© 2021 Massimiliano Gargano</small>
+    </footer>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+</body>
+
+</html>

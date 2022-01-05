@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav>
+    <!-- <div class="name"><strong>Massimiliano Gargano</strong></div> -->
+    <div class="about">
+        <a href="/about">About</a>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="avatar">
+        <a href="/about" class="photo">
+            <img src="{{ url_for('static', filename='img/me.jpg')}}" alt="This is me">
+        </a>
+        <!-- <span class="avatar-prompt">About me</span> -->
+
+    </header>
+
+
+    <main>
+        <h2>Blog!</h2>
+
+        <div class="blog-list">
+            <ul>
+                <li><a href="/first_article">First Article</a></li>
+                <li>First Article</li>
+                <li>First Article</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- reading now -->
+
+    <section class="readings">
+        <div>
+            <h3>My Readings</h3>
+        </div>
+
+        <div class="books">
+            <a href=""><img src="{{ url_for('static', filename='img/Introduction to Machine Learning.jpg') }}"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/the_art_of_statistics.jpg') }}"></a>
+            <a href=""><img
+                    src="{{ url_for('static', filename='img/Practical Statistics for Data Scientists.jpg') }}"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/The signal and the noise.jpg') }}"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/Python for data analysis.jpg') }}"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/the_black_swan.jpg') }}"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/antifragile.jpg') }}"></a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock content %}

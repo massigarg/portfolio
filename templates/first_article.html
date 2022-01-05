@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<div class="arrow"> <a href="/home">
+        < </a>
+</div>
+
+
+<div class="container">
+    <h1>Title</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam similique autem rerum ipsa veritatis ratione,
+        veniam numquam esse nesciunt eligendi obcaecati, quod asperiores at excepturi? Dicta officia incidunt quam
+        repellat!
+        Blanditiis natus distinctio nemo itaque ipsam accusamus, vel impedit consectetur officiis voluptas, corrupti
+        alias fugit? Omnis blanditiis ea commodi deserunt repellendus earum hic corporis aspernatur exercitationem! Ut
+        molestiae ducimus architecto?
+        Iure, tenetur earum est fuga dignissimos cum. Quos dignissimos, ipsum totam fugiat eligendi fugit perspiciatis!
+        A maxime explicabo repellat, nesciunt reprehenderit aut quis? Iste quisquam soluta, doloribus aperiam mollitia
+        omnis!
+        Reiciendis repellendus, aliquid magni sit ab consectetur vel exercitationem. Error soluta, ab ratione animi a
+        quis quos! Officiis doloremque iusto, enim blanditiis totam, veniam reprehenderit, sequi illo aut debitis
+        voluptas?
+        Ex beatae facere, provident eius reprehenderit perspiciatis minus deserunt iusto cumque tempore nemo iure
+        dignissimos voluptas. Laboriosam quod fuga illum veritatis blanditiis, laudantium saepe repellendus amet,
+        repudiandae laborum et odio!
+        Nulla ea temporibus hic. Consectetur enim quaerat rem! Velit maxime hic odit sint fuga ab quas aspernatur
+        mollitia id atque nisi dolore eum, laboriosam magnam dolorem in at vero quo!
+        Ipsa ipsum, voluptatem, eos, eveniet mollitia soluta earum eum quidem dolorum eius voluptatum impedit est. Vero,
+        numquam omnis, sapiente ipsam quod aliquam amet provident incidunt expedita, laudantium quis. Eum, unde.
+        Suscipit, sit ab. Fuga in dolorem possimus vel nulla necessitatibus, corporis numquam, doloremque a incidunt
+        iusto facilis id eos ex autem. Recusandae consequatur numquam nam iste fugiat maxime quo itaque.
+        Minima sed soluta ex deserunt perferendis ab mollitia. Rerum omnis unde, quia possimus, perferendis deserunt
+        saepe voluptatum minus ratione libero laborum culpa cumque dolor fugiat dolorum illum labore aperiam veritatis?
+        Sed illum aspernatur est quis, reiciendis perspiciatis nostrum esse similique modi ipsa consequuntur explicabo
+        porro? Veritatis architecto ipsum magni. Quasi temporibus ut, molestias rerum voluptatem minima quia ipsum at
+        perferendis!</p>
+
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root | tojson }};
+    </script>
+
+    <script>
+        $(function () {
+
+            $('#calculate').bind('click', function () {
+
+
+
+
+                if ($('#mmr').is(":checked")) {
+                    mmr = "True"
+                }
+                else {
+                    mmr = ""
+
+                }
+
+
+                $.getJSON($SCRIPT_ROOT + '/extract_keywords', {
+
+                    mmr: mmr,
+                    diversity: $('input[name="diversity"]').val(),
+                    top_n: $('input[name="top_n"]').val()
+                }, function (data) {
+                    $("#result").text(data.result);
+                });
+                return false;
+            });
+        });
+
+
+
+    </script>
+
+    <script>
+        $(document).ajaxStart(function () {
+            $("#loading").show();
+        });
+
+        $(document).ajaxStop(function () {
+            $("#loading").hide();
+        });
+    </script>
+
+
+
+    <h3>Extracting keywords from following text:</h3>
+
+    <p>
+        "The Biden administration plans to require most foreign visitors to be vaccinated.Biden Plans New Policy
+        Requiring That All Foreign Travelers to U.S. Be VaccinatedThe Biden administration is developing plans to
+        require all foreign travelers to the United States to be vaccinated against Covid-19, with limited exceptions,
+        according to an administration official with knowledge of the developing policy.Officials say the new policy is
+        being readied in the event that the United States eases its travel rules, which isn’t expected soon."
+
+    </p>
+
+
+
+    <h3>Keyword Extraction Parameters</h3>
+
+
+    <form action="/first_article" method="post">
+        <div class="form-group">
+            <input class="form-control" size=5 type=text name="diversity" placeholder="diversity" id="diversity">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type=text name="top_n" placeholder="number of keywords" id="top_n">
+
+        </div>
+
+        <div class="form-group">
+            <input name="mmr" class="form-check-input" type="checkbox" id="mmr">
+            <label class="form-check-label" for="defaultCheck1">
+                MMR
+            </label>
+
+
+        </div>
+
+        <div class="evaluate">
+            <div class="submit">
+                <button type="submit" id="calculate" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="submit" id="loading" style="display:none;"><img
+                    src="{{ url_for('static', filename='img/loading.gif')}}" alt="" width="60" /></div>
+        </div>
+
+
+
+
+
+
+    </form>
+
+
+
+
+
+    <h3>Extracted Keywords:</h3>
+
+
+    <div>
+        <span id=result></span>
+    </div>
+
+
+</div>
+{% endblock content %}

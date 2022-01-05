@@ -1,0 +1,19 @@
+.form-group  {
+    display: inline-block;
+    width: 300px;
+    margin: 10px auto;
+}
+
+
+
+.evaluate {
+    height: 40px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    
+}
+
+
