@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, jsonify
-from flask_wtf import FlaskForm
-from wtforms import BooleanField
+# from flask_wtf import FlaskForm
+# from wtforms import BooleanField
 
 
 app = Flask(__name__)
