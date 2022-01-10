@@ -111,15 +111,6 @@
     }
 }
 
-
-/* sticky name */
-/* .name {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
-} */
-
-
 /* CV section */
 .cv {
     text-align: justify;
@@ -137,31 +128,40 @@
 
 .projects {
   margin: 40px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .card {
-  margin: 20px auto;
+  margin: 20px 20px;
   box-sizing: content-box;
   width: 200px;
   border: 5px solid hsl(180, 100%, 25%, 0.90);
   border-radius: 1.5em;
   background-color: #005f73;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .card .card-title {
+  margin-top: 10px;
   text-align: center;
-  /* color: white; */
+  overflow: auto;
+  white-space:normal;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 #card-image {
-  width: 200px;
-  border: 5px solid #e9c46a;
+  width: 180px;
+  height: 180px;
+  border: 5px solid hsl(43, 74%, 66%, 0.9);
   border-radius: 50%;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
 }
+
 
 /* Path */
 .path {
@@ -362,30 +362,21 @@
 .skill-title {
   margin: 15px 0 0 ;
   padding-left: 5px;
+  text-transform: uppercase;
+
 }
 
 .html {width: 90%; background-color: #2a9d8f; border-radius: 2em;}
 .css {width: 80%; background-color: #f4a261; border-radius: 2em;}
-.js {width: 65%; background-color: #e76f51;border-radius: 2em;}
-.php {width: 60%; background-color: #005f73; border-radius: 2em;}
+.python {width: 95%; background-color: #e76f51;border-radius: 2em;}
+.flask {width: 65%; background-color: #005f73; border-radius: 2em;}
+.sql {width: 85%; background-color: #81b29a; border-radius: 2em;}
 
-/* custom scrollbar */
-::-webkit-scrollbar {
-  width: 20px;
-  }
-  
-  ::-webkit-scrollbar-track {
-  background-color: transparent;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-  background-color: hsl(180, 100%, 25%, 0.50);
-  border-radius: 20px;
-  border: 6px solid transparent;
-  background-clip: content-box;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(180, 100%, 25%, 0.80);
-  }
+.scraping {width: 90%; background-color: #2a9d8f; border-radius: 2em;}
+.nlp {width: 80%; background-color: #f4a261; border-radius: 2em;}
+.ml {width: 85%; background-color: #e76f51;border-radius: 2em;}
+.dviz {width: 90%; background-color: #005f73; border-radius: 2em;}
+.dpl{width: 70%; background-color: #81b29a; border-radius: 2em;}
+
+
   

@@ -8,34 +8,37 @@
 
 
 <div class="container">
-    <h1>Title</h1>
+    <h1>Keyword assignment with python</h1>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam similique autem rerum ipsa veritatis ratione,
-        veniam numquam esse nesciunt eligendi obcaecati, quod asperiores at excepturi? Dicta officia incidunt quam
-        repellat!
-        Blanditiis natus distinctio nemo itaque ipsam accusamus, vel impedit consectetur officiis voluptas, corrupti
-        alias fugit? Omnis blanditiis ea commodi deserunt repellendus earum hic corporis aspernatur exercitationem! Ut
-        molestiae ducimus architecto?
-        Iure, tenetur earum est fuga dignissimos cum. Quos dignissimos, ipsum totam fugiat eligendi fugit perspiciatis!
-        A maxime explicabo repellat, nesciunt reprehenderit aut quis? Iste quisquam soluta, doloribus aperiam mollitia
-        omnis!
-        Reiciendis repellendus, aliquid magni sit ab consectetur vel exercitationem. Error soluta, ab ratione animi a
-        quis quos! Officiis doloremque iusto, enim blanditiis totam, veniam reprehenderit, sequi illo aut debitis
-        voluptas?
-        Ex beatae facere, provident eius reprehenderit perspiciatis minus deserunt iusto cumque tempore nemo iure
-        dignissimos voluptas. Laboriosam quod fuga illum veritatis blanditiis, laudantium saepe repellendus amet,
-        repudiandae laborum et odio!
-        Nulla ea temporibus hic. Consectetur enim quaerat rem! Velit maxime hic odit sint fuga ab quas aspernatur
-        mollitia id atque nisi dolore eum, laboriosam magnam dolorem in at vero quo!
-        Ipsa ipsum, voluptatem, eos, eveniet mollitia soluta earum eum quidem dolorum eius voluptatum impedit est. Vero,
-        numquam omnis, sapiente ipsam quod aliquam amet provident incidunt expedita, laudantium quis. Eum, unde.
-        Suscipit, sit ab. Fuga in dolorem possimus vel nulla necessitatibus, corporis numquam, doloremque a incidunt
-        iusto facilis id eos ex autem. Recusandae consequatur numquam nam iste fugiat maxime quo itaque.
-        Minima sed soluta ex deserunt perferendis ab mollitia. Rerum omnis unde, quia possimus, perferendis deserunt
-        saepe voluptatum minus ratione libero laborum culpa cumque dolor fugiat dolorum illum labore aperiam veritatis?
-        Sed illum aspernatur est quis, reiciendis perspiciatis nostrum esse similique modi ipsa consequuntur explicabo
-        porro? Veritatis architecto ipsum magni. Quasi temporibus ut, molestias rerum voluptatem minima quia ipsum at
-        perferendis!</p>
+    <p>Keyword extraction is tasked with the automatic identification of terms that best describe the subject of a
+        document (Wikipedia, 2021). Generally, we can split keywords extraction methods in two:</p>
+    <ul>
+        <li>Keyword assignment (where keywords are assigned from a controlled pool of words)</li>
+        <li>Keyword extraction (where the assigned keywords are chosen from the text)</li>
+    </ul>
+    <p>
+        In this article we are going to explore a simple keyword assignment solution using a Python package called
+        KeyBERT. <a href="https://maartengr.github.io/KeyBERT/">KeyBERT</a> is a minimal and easy-to-use keyword
+        extraction
+        technique that leverages BERT embeddings to
+        create keywords and keyphrases that are most similar to a document (Grootendorst, 2021). BERT stands for
+        Bidirectional Encoder Representations from Transformers and it’s a language representation model designed to
+        pre-train deep bidirectional representation from unlabelled text by jointly conditioning on both left and right
+        context in all layers (Jacob Devlin, 2018).
+    </p>
+
+    <p> We will use the NYT API and specifically the Archive API that returns an array of NYT articles for a given
+        month, going back to 1851.
+        While using their APIs we need to make sure to not break their <a
+            href="https://help.nytimes.com/hc/en-us/articles/115014893">Terms of service</a> and to comply with their
+        API call limit:
+        * 4000 requests per day
+        * 10 requests per minute
+        * Sleep our script 6 seconds to avoid hitting the per minute rate limit
+        This study aims to demonstrate how a small amount of keywords (~2%) taken from the full set of keywords used by
+        the NYT in 1 year could be sufficient to impute those article’s missing keywords.</p>
+
+    </p>
 
     <script>
         $SCRIPT_ROOT = {{ request.script_root | tojson }};
@@ -88,6 +91,48 @@
 
     <h3>Extracting keywords from following text:</h3>
 
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Keywords with cardinality > 60
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    ['Politics and Government', 'Global Warming', 'United Nations', 'Johnson, Boris', 'Great Britain',
+                    'Coronavirus (2019-nCoV)', 'Quarantine (Life and Culture)', 'Putin, Vladimir V', 'Travel and
+                    Vacations', 'Quarantines', 'Deaths (Fatalities)', 'Vaccination and Immunization', 'Demonstrations,
+                    Protests and Riots', 'Muslims and Islam', 'Terrorism', 'Defense and Military Forces', 'Human Rights
+                    and Human Rights Violations', 'Mexico', 'United States International Relations', 'United States
+                    Politics and Government', 'Biden, Joseph R Jr', 'Palestinians', 'Gaza Strip', 'Israel', 'Hamas',
+                    'Economic Conditions and Trends', 'China', 'Social Media', 'Communist Party of China', 'Law and
+                    Legislation', 'Shortages', 'Floods', 'Civilian Casualties', 'Afghanistan War (2001- )', 'Hospitals',
+                    'Taliban', 'AFGHANISTAN', 'Kabul (Afghanistan)', 'Brazil', 'War and Armed Conflicts', 'Refugees and
+                    Displaced Persons', 'Russia', 'International Relations', 'Australia', 'Sex Crimes', 'South Korea',
+                    'War Crimes, Genocide and Crimes Against Humanity', 'World Health Organization', 'India', 'Embargoes
+                    and Sanctions', 'United States Defense and Military Forces', 'Iran', 'Legislatures and Parliaments',
+                    'Disease Rates', 'Italy', 'Germany', 'Merkel, Angela', 'Europe', 'Elections', 'Great Britain
+                    Withdrawal from EU (Brexit)', 'International Trade and World Market', 'European Union', 'Macron,
+                    Emmanuel (1977- )', 'France', 'Corruption (Institutional)', 'Canada', 'Women and Girls',
+                    'Immigration and Emigration', 'Discrimination', 'Content Type: Personal Profile', 'Japan',
+                    'Shutdowns (Institutional)', "Coups D'Etat and Attempted Coups D'Etat", 'Modi, Narendra', 'Roman
+                    Catholic Church', 'Political Prisoners', 'Assassinations and Attempted Assassinations', 'Myanmar',
+                    'Evacuations and Evacuees', 'Murders, Attempted Murders and Homicides', 'News and News Media',
+                    'Coronavirus Reopenings', 'United States', 'London (England)', 'England', 'Belarus', 'Poland',
+                    'Pfizer Inc', 'Trump, Donald J', 'Freedom of the Press', 'Hong Kong', 'Islamic State in Iraq and
+                    Syria (ISIS)', 'Royal Families', 'AFRICA', 'Navalny, Aleksei A', 'Haiti', 'Netanyahu, Benjamin',
+                    "Women's Rights", 'AstraZeneca PLC', 'Afghan National Security Forces', 'Francis', 'Hong Kong
+                    Protests (2019)', 'internal-essential']
+                </div>
+            </div>
+        </div>
+    </div>
+
     <p>
         "The Biden administration plans to require most foreign visitors to be vaccinated.Biden Plans New Policy
         Requiring That All Foreign Travelers to U.S. Be VaccinatedThe Biden administration is developing plans to
@@ -96,8 +141,6 @@
         being readied in the event that the United States eases its travel rules, which isn’t expected soon."
 
     </p>
-
-
 
     <h3>Keyword Extraction Parameters</h3>
 
@@ -144,9 +187,9 @@
     <h3>Extracted Keywords:</h3>
 
 
-    <div>
+    <samp>
         <span id=result></span>
-    </div>
+    </samp>
 
 
 </div>

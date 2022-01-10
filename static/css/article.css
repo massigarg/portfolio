@@ -16,4 +16,19 @@
     
 }
 
+#accordion .card{
+    background-color: #151b29;
+
+}
+
+#accordion .collapse {
+    background-color: hsl(180, 100%, 25%, 0.60);
+}
+
+#accordion .btn {
+    text-decoration: none;
+    background-color: hsl(180, 100%, 25%, 0.60);
+    font-weight: 700;
+    color: hsla(0, 0%, 98%, 0.85);
+}
 

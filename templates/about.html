@@ -16,13 +16,13 @@
                 <div class="social"><a href="https://github.com/massigarg"><img
                             src="{{url_for('static', filename='img/github.png')}}" alt=""></a>
                 </div>
-                <div class="social"><a href="https://github.com/massigarg"><img
+                <!-- <div class="social"><a href="https://github.com/massigarg"><img
                             src="{{url_for('static', filename='img/medium-logo.png')}}" alt=""></a>
-                </div>
-                <div class="social"><a href="https://github.com/massigarg"><img
+                </div> -->
+                <div class="social"><a href="https://www.linkedin.com/in/massimiliano-gargano/?locale=en_US"><img
                             src="{{url_for('static', filename='img/linkedin.png')}}" alt=""></a>
                 </div>
-                <div class="social"><a href="https://github.com/massigarg"><img
+                <div class="social"><a href="https://www.instagram.com/massigarg/"><img
                             src="{{url_for('static', filename='img/instagram.png')}}" alt=""></a>
                 </div>
 
@@ -70,30 +70,39 @@
         <section class="projects">
 
             <div class="card">
-                <img alt="" src="https://assets.codepen.io/123865/dog.png" id="card-image">
-                <div class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste error commodi
-                    perferendis quas? In, sequi. Ab, sint exercitationem ad eius reprehenderit molestiae enim iure
-                    dolorem
-                    ut porro. Sunt, maxime perferendis.</div>
-            </div>
-            <div class="card">
-                <img alt="" src="https://assets.codepen.io/123865/dog.png" id="card-image">
-                <div class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste error commodi
-                    perferendis quas? In, sequi. Ab, sint exercitationem ad eius reprehenderit molestiae enim iure
-                    dolorem
-                    ut porro. Sunt, maxime perferendis.</div>
-            </div>
-            <div class="card">
-                <img alt="" src="https://assets.codepen.io/123865/dog.png" id="card-image">
-                <div class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste error commodi
-                    perferendis quas? In, sequi. Ab, sint exercitationem ad eius reprehenderit molestiae enim iure
-                    dolorem
-                    ut porro. Sunt, maxime perferendis.</div>
-            </div>
+                <a href="https://github.com/massigarg/portfolio">
+                    <img alt="" src="{{url_for('static', filename='img/data_analysis.jpg')}}" id="card-image">
+                </a>
 
-        </section>
+                <div class="card-title">Implementation of nested cross validation from scratch using the Wine
+                    dataset</div>
+
+
+            </div>
+            <div class="card">
+                <a href="https://github.com/massigarg/Product-Categorisation">
+                    <img alt="" src="{{url_for('static', filename='img/category.jpg')}}" id="card-image">
+                </a>
+
+                <div class="card-title">Product categorisation with machine learning</div>
+            </div>
+            <div class="card">
+                <img alt="" src="{{url_for('static', filename='img/coding.jpg')}}" id="card-image">
+                <div class="card-title">Portfolio building </div>
+            </div>
+            <div class="card">
+                <img alt="" src="{{url_for('static', filename='img/news.jpg')}}" id="card-image">
+                <div class="card-title">Exploring New York Times world news over 1 year time span</div>
+            </div>
+            <div class="card">
+                <img alt="" src="{{url_for('static', filename='img/map.jpg')}}" id="card-image">
+                <div class="card-title">MaPy - a Python script to create a map from your photos</div>
+            </div>
 
     </div>
+
+    </section>
+
 
 
     <!-- timeline -->
@@ -151,48 +160,58 @@
         <div class="skill-bar col-1">
             <h2>Programming Languages</h2>
 
-            <p class="skill-title">PYTHON</p>
+            <p class="skill-title">Python</p>
             <div class="bar">
-                <div class="skills html"></div>
+                <div class="skills python"></div>
             </div>
 
-            <p class="skill-title">SQL</p>
+            <p class="skill-title">sql</p>
             <div class="bar">
-                <div class="skills css"></div>
+                <div class="skills sql"></div>
+            </div>
+
+            <p class="skill-title">Flask</p>
+            <div class="bar">
+                <div class="skills flask"></div>
             </div>
 
             <p class="skill-title">HTML</p>
             <div class="bar">
-                <div class="skills js"></div>
+                <div class="skills html"></div>
             </div>
 
             <p class="skill-title">CSS</p>
             <div class="bar">
-                <div class="skills php"></div>
+                <div class="skills css"></div>
             </div>
         </div>
 
         <div class="skill-bar col-2">
             <h2>Data Science</h2>
 
-            <p class="skill-title">WEB SCRAPING</p>
+            <p class="skill-title">Web Scraping</p>
             <div class="bar">
-                <div class="skills html"></div>
+                <div class="skills scraping"></div>
             </div>
 
-            <p class="skill-title">NLP</p>
+            <p class="skill-title">Nlp</p>
             <div class="bar">
-                <div class="skills css"></div>
+                <div class="skills nlp"></div>
             </div>
 
-            <p class="skill-title">MACHINE LEARNING</p>
+            <p class="skill-title">Machine Learning</p>
             <div class="bar">
-                <div class="skills js"></div>
+                <div class="skills ml"></div>
             </div>
 
-            <p class="skill-title">DATA VISUALIZATION</p>
+            <p class="skill-title">Data Visualization</p>
             <div class="bar">
-                <div class="skills php"></div>
+                <div class="skills dviz"></div>
+            </div>
+
+            <p class="skill-title">Deep Learning</p>
+            <div class="bar">
+                <div class="skills dpl"></div>
             </div>
         </div>
 
