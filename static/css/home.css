@@ -1,9 +1,10 @@
 /* nav */
 
 nav {
+    display:-webkit-flex;
+    display:-ms-flex;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; IN CASE YOU READ NAME*/
     justify-content: right;
     text-transform: uppercase;
     height: 35px;
