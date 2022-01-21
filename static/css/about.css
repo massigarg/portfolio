@@ -135,7 +135,7 @@
 .card {
   margin: 20px 20px;
   box-sizing: content-box;
-  width: 200px;
+  width: 220px;
   border: 5px solid hsl(180, 100%, 25%, 0.90);
   border-radius: 1.5em;
   background-color: #005f73;
@@ -150,6 +150,60 @@
   white-space:normal;
   font-weight: 700;
   text-transform: capitalize;
+}
+
+.card .tag-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
+.card .tag {
+  margin-right: 5px;
+  background-color: hsl(12, 76%, 61%, .90);
+  padding: 0 10px;
+  border: 2px solid #e9c46a ;
+  border-radius: 30px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+#nlp {
+  background-color:hsl(173, 58%, 39%, 0.9);
+}
+#ml {
+  background-color:hsl(12, 76%, 61%, .90);
+}
+#flask {
+  background-color: hsl(39, 100%, 47%, 0.9);
+}
+#html {
+  background-color: hsl(160, 41%, 70%, 0.9);
+}
+#css {
+  background-color: hsl(45, 60%, 78%, 0.9);
+}
+#python {
+  background-color: hsl(19, 97%, 37%, 0.9);
+}
+#time-series {
+  background-color: hsl(152, 41%, 52%, 0.9);
+}
+
+
+.card .card-description{
+  margin-top: 5px;
+  text-align: center;
+  overflow: auto;
+  white-space:normal;
+  font-weight:300;
+  padding: 8px;
 }
 
 #card-image {

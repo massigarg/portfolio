@@ -37,5 +37,5 @@ def first_article():
     return render_template("first_article.html", title="Article")
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
