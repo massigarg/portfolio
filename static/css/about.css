@@ -162,6 +162,7 @@
 
 .card .tag {
   margin-right: 5px;
+  margin-bottom: 5px;
   background-color: hsl(12, 76%, 61%, .90);
   padding: 0 10px;
   border: 2px solid #e9c46a ;
@@ -190,10 +191,18 @@
   background-color: hsl(45, 60%, 78%, 0.9);
 }
 #python {
-  background-color: hsl(19, 97%, 37%, 0.9);
+  background-color: hsl(19, 97%, 37%, 0.85);
 }
 #time-series {
   background-color: hsl(152, 41%, 52%, 0.9);
+}
+
+#classification {
+  background-color: hsl(278, 100%, 36%,0.5);
+}
+
+#regression {
+  background-color: hsl(217, 100%, 56%, 0.6);
 }
 
 
