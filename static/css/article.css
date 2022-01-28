@@ -4,7 +4,14 @@
     margin: 10px auto;
 }
 
+h1 {
+    text-transform: capitalize;
+}
 
+a {
+    text-decoration: none;
+    color: hsl(180, 100%, 25%);
+}
 
 .evaluate {
     height: 40px;
@@ -30,5 +37,10 @@
     background-color: hsl(180, 100%, 25%, 0.60);
     font-weight: 700;
     color: hsla(0, 0%, 98%, 0.85);
+}
+
+.btn {
+    background-color: hsl(180, 100%, 25%, 0.60);
+    border-color: hsl(180, 100%, 25%, 0.60);
 }
 

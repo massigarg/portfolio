@@ -1,11 +1,12 @@
 /* nav */
 
 nav {
-    display:-webkit-flex;
+    /* display:-webkit-flex;
     display:-ms-flex;
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: right; */
+    text-align: right;
     text-transform: uppercase;
     height: 35px;
     position: -webkit-sticky;
@@ -13,8 +14,6 @@ nav {
     top: 20px;
 
 }
-
-
 
 .about a {
     text-decoration: none;
