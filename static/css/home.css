@@ -77,33 +77,6 @@ a:hover + .avatar-prompt {
 
 }
 
-/* Name */
-
-/* h1 {
-    text-align: center;
-    color: teal;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 4px;
-    font-weight: 200;
-}
-
-h1:hover{
-    text-decoration: underline;
-} */
-
-/* fancy things for h1 */
-
-/* h1::first-letter {
-    color: #e9c46a;
-} */
-
-/* h1::selection{
-    background-color: yellow;
-} */
-
-/* Blog text */
-
 main {
     max-width: 500px;
     margin: 50px auto;
@@ -120,10 +93,6 @@ h2 {
 ul {
     list-style-type: none;
     padding-left: 0;
-}
-
-ul li {
-    padding: 10px 0;
 }
 
 ul li a {

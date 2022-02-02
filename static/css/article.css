@@ -4,6 +4,10 @@
     margin: 10px auto;
 }
 
+p {
+    text-align: justify;
+}
+
 h1 {
     text-transform: capitalize;
 }
@@ -12,6 +16,42 @@ a {
     text-decoration: none;
     color: hsl(180, 100%, 25%);
 }
+
+/* Quotes */
+
+blockquote {
+    margin: 0;
+    color: #151b29;
+  }
+  
+  blockquote {
+    padding: 15px;
+    background: hsl(210, 17%, 98%, 0.9);
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px hsl(180, 100%, 25%, 0.2);
+  }
+  
+  blockquote::before {
+    content: '\201C';
+  }
+  
+  blockquote::after {
+    content: '\201D';
+}
+
+/* Images */
+
+figcaption {
+    text-align: center;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
 
 .evaluate {
     height: 40px;
