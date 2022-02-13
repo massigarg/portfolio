@@ -1,4 +1,4 @@
-/* arrow to go back roght side */
+/* arrow to go back right side */
 
 .arrow {
     text-align: right;
@@ -197,6 +197,9 @@ blockquote p::after {
 
 #nlp {
   background-color:hsl(173, 58%, 39%, 0.9);
+}
+#sql {
+  background-color: hsl(43, 74%, 66%, 0.9);
 }
 #ml {
   background-color:hsl(12, 76%, 61%, .90);

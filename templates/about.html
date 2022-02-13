@@ -49,7 +49,7 @@
         <p>
             Passionate about leveraging data to make efficient decisions. I am an avid learner, pushing myself everyday
             to learn new things: from tech, economy and finance to
-            politics and photograhpy.
+            politics and photography.
         </p>
 
         <figure>
@@ -71,11 +71,36 @@
         <section class="projects">
 
             <div class="card">
+                <a href="https://nyt-sentiment.herokuapp.com/">
+                    <img alt="" src="{{url_for('static', filename='img/nyt_news.jpg')}}" id="card-image">
+                </a>
+
+                <div class="card-title">new yor times Sentiment Web-App</div>
+                <div class="tag-wrap">
+                    <div class="tag" id="nlp">nlp</div>
+                    <div class="tag" id="sql">sql</div>
+                </div>
+                <div class="card-description">Headlines sentiment scores filtered by geographic subsection using
+                    Streamlit as framework</div>
+            </div>
+
+
+            <div class="card">
+                <img alt="" src="{{url_for('static', filename='img/news.jpg')}}" id="card-image">
+                <div class="card-title">New York Times news analysis</div>
+                <div class="tag-wrap">
+                    <div class="tag" id="nlp">nlp</div>
+                    <div class="tag" id="time-series">time series</div>
+                </div>
+                <div class="card-description">Exploring NYT world news over 1 year time span</div>
+            </div>
+
+            <div class="card">
                 <a href="https://github.com/massigarg/disaster-tweet">
                     <img alt="" src="{{url_for('static', filename='img/tweet.jpg')}}" id="card-image">
                 </a>
 
-                <div class="card-title">Distaster Tweets</div>
+                <div class="card-title">Disaster Tweets</div>
                 <div class="tag-wrap">
                     <div class="tag" id="nlp">nlp</div>
                     <div class="tag" id="ml">ml</div>
@@ -103,20 +128,6 @@
             </div>
 
             <div class="card">
-                <a href="https://github.com/massigarg/Product-Categorisation">
-                    <img alt="" src="{{url_for('static', filename='img/category.jpg')}}" id="card-image">
-                </a>
-
-                <div class="card-title">Product categorisation with machine learning</div>
-                <div class="tag-wrap">
-                    <div class="tag" id="nlp">nlp</div>
-                    <div class="tag" id="ml">ml</div>
-                    <div class="tag" id="classification">classification</div>
-                </div>
-                <div class="card-description">Multilevel product categorisation using NLP and Machine Learning</div>
-            </div>
-
-            <div class="card">
                 <img alt="" src="{{url_for('static', filename='img/coding_image.jpg')}}" id="card-image">
                 <div class="card-title">Portfolio building </div>
                 <div class="tag-wrap">
@@ -129,14 +140,19 @@
             </div>
 
             <div class="card">
-                <img alt="" src="{{url_for('static', filename='img/news.jpg')}}" id="card-image">
-                <div class="card-title">New York Times news analysis</div>
+                <a href="https://github.com/massigarg/Product-Categorisation">
+                    <img alt="" src="{{url_for('static', filename='img/category.jpg')}}" id="card-image">
+                </a>
+
+                <div class="card-title">Product categorization with machine learning</div>
                 <div class="tag-wrap">
                     <div class="tag" id="nlp">nlp</div>
-                    <div class="tag" id="time-series">time series</div>
+                    <div class="tag" id="ml">ml</div>
+                    <div class="tag" id="classification">classification</div>
                 </div>
-                <div class="card-description">Exploring NYT world news over 1 year time span</div>
+                <div class="card-description">Multilevel product categorization using NLP and Machine Learning</div>
             </div>
+
             <div class="card">
                 <img alt="" src="{{url_for('static', filename='img/map.jpg')}}" id="card-image">
                 <div class="card-title">MaPy</div>
