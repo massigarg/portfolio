@@ -1,4 +1,4 @@
-.form-group  {
+.form-group {
     display: inline-block;
     width: 300px;
     margin: 10px auto;
@@ -22,20 +22,20 @@ a {
 blockquote {
     margin: 0;
     color: #151b29;
-  }
-  
-  blockquote {
+}
+
+blockquote {
     padding: 15px;
     background: hsl(210, 17%, 98%, 0.9);
     border-radius: 5px;
     box-shadow: 10px 5px 5px hsl(180, 100%, 25%, 0.2);
-  }
-  
-  blockquote::before {
+}
+
+blockquote::before {
     content: '\201C';
-  }
-  
-  blockquote::after {
+}
+
+blockquote::after {
     content: '\201D';
 }
 
@@ -60,10 +60,10 @@ img {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    
+
 }
 
-#accordion .card{
+#accordion .card {
     background-color: #151b29;
 
 }
@@ -83,4 +83,3 @@ img {
     background-color: hsl(180, 100%, 25%, 0.60);
     border-color: hsl(180, 100%, 25%, 0.60);
 }
-

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
     {% elif title=="About" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}">
-    {% elif title=="Article" %}
+    {% else %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/article.css')}}">
     {% endif %}
 
@@ -54,7 +54,7 @@
 
 
     <footer>
-        <small>© 2021 Massimiliano Gargano</small>
+        <small>© 2022 Massimiliano Gargano</small>
     </footer>
 
     <!-- JS -->

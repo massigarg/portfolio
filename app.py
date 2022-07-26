@@ -29,13 +29,21 @@ def extract_keywords():
 
 @app.route("/keywrod_assignment_with_keybert", methods=["POST", "GET"])
 def keywrod_assignment_with_keybert():
-    return render_template("keywrod_assignment_with_keybert.html", title="Article")
+    return render_template("/blog_posts/keywrod_assignment_with_keybert.html", title="Keywords assignment with KeyBERT")
 
 
 @app.route("/TDD")
 def TDD():
-    return render_template("TDD.html", title="Article")
+    return render_template("/blog_posts/TDD.html", title="TDD")
+
+# 23/07/22
 
 
+@app.route("/literature_review")
+def literature_review():
+    return render_template("/blog_posts/literature_review.html", title="Abstractive Text Summarization")
+
+
+# run in debug with python app.py
 if __name__ == "__main__":
     app.run(debug=True)
