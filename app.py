@@ -44,6 +44,11 @@ def literature_review():
     return render_template("/blog_posts/literature_review.html", title="Abstractive Text Summarization")
 
 
+@app.route("/blockchain_transactions")
+def blockchain_transactions():
+    return render_template("/blog_posts/blockchain_transactions.html", title="Blockchain: A Gentle Introduction to Transactions")
+
+
 # run in debug with python app.py
 if __name__ == "__main__":
     app.run(debug=True)
