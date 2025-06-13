@@ -1,7 +1,46 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="arrow"> <a href="/home">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
+
+
+    <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/article.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>Massimiliano Gargano - Test-Driven Development</title>
+
+</head>
+
+<body>
+
+<div class="arrow"> <a href="index.html">
         < </a>
 </div>
 <div class="container">
@@ -38,7 +77,7 @@
         test.
     </p>
     <figure>
-        <img src="{{ url_for('static', filename='img/TDD/TDD.png')}}" alt="TDD">
+        <img src="static/img/TDD/TDD.png" alt="TDD">
         <figcaption>TDD loop - <a href="https://aulasoftwarelibre.github.io/taller-de-python/Testing/TDD/">source</a>
         </figcaption>
     </figure>
@@ -82,16 +121,16 @@
 
     <p>Let's write our first test function to check if the function exists:</p>
 
-    <img src="{{ url_for('static', filename='img/TDD/1.png')}}" alt="">
+    <img src="static/img/TDD/1.png" alt="">
     <p>After running this code we will have an error:</p>
 
-    <img src="{{ url_for('static', filename='img/TDD/error.png')}}" alt="">
+    <img src="static/img/TDD/error.png" alt="">
 
     <p> This is expected since we didn't write our production code yet, but remember: You may not write production code
         unless you've first written a failing unit test!!
         Let's implement the get_highest function:</p>
 
-    <img src="{{ url_for('static', filename='img/TDD/2.png')}}" alt="">
+    <img src="static/img/TDD/2.png" alt="">
 
     <p>
         Now the test gives a pass. Not how using Docstrings in our functions helps in better understanding the testing
@@ -99,50 +138,50 @@
         Let's test now if the function returns a value or not:
     </p>
 
-    <img src="{{ url_for('static', filename='img/TDD/3.png')}}" alt="">
+    <img src="static/img/TDD/3.png" alt="">
     <p>
         As before we will get an error and we will need to update our production function:
     </p>
 
-    <img src="{{ url_for('static', filename='img/TDD/4.png')}}" alt="">
+    <img src="static/img/TDD/4.png" alt="">
     <p>
         Let's test now that the function returns an actual value, e.g., 5:
     </p>
-    <img src="{{ url_for('static', filename='img/TDD/5.png')}}" alt="">
+    <img src="static/img/TDD/5.png" alt="">
 
     <p>
         In this case we have an error (even worse than a fail) and that's because we are not passing any argument in our
         function. Also we will need to update other functions call in other tests. Let's take care of this:
     </p>
 
-    <img src="{{ url_for('static', filename='img/TDD/6.png')}}" alt="">
+    <img src="static/img/TDD/6.png" alt="">
 
     <p>Let's test now if it returns 4:</p>
 
-    <img src="{{ url_for('static', filename='img/TDD/7.png')}}" alt="">
+    <img src="static/img/TDD/7.png" alt="">
     <p>After getting the error, let's update the function:</p>
 
-    <img src="{{ url_for('static', filename='img/TDD/8.png')}}" alt="">
+    <img src="static/img/TDD/8.png" alt="">
 
     <p> We kind of cheated in this case because the highest number is always at the end. Let's test if it's in the
         middle:</p>
 
-    <img src="{{ url_for('static', filename='img/TDD/9.png')}}" alt="">
+    <img src="static/img/TDD/9.png" alt="">
 
     <p>
         Update the function again after getting an error:
     </p>
-    <img src="{{ url_for('static', filename='img/TDD/10.png')}}" alt="">
+    <img src="static/img/TDD/10.png" alt="">
 
     <p>Now let's test if it's a string:</p>
 
 
-    <img src="{{ url_for('static', filename='img/TDD/11.png')}}" alt="">
+    <img src="static/img/TDD/11.png" alt="">
     <p>
         Return function:
     </p>
 
-    <img src="{{ url_for('static', filename='img/TDD/12.png')}}" alt="">
+    <img src="static/img/TDD/12.png" alt="">
     <p>
         Later on we can add more testing function like if the number is at the beginning, if we have two number that are
         the highest etc
@@ -162,4 +201,20 @@
 </div>
 
 
-{% endblock content %}
+    <footer>
+        <small>© 2022 Massimiliano Gargano</small>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

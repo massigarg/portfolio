@@ -1,8 +1,47 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
+
+
+    <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/article.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>Massimiliano Gargano - Keyword Assignment with KeyBERT</title>
+
+</head>
+
+<body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<div class="arrow"> <a href="/home">
+<div class="arrow"> <a href="index.html">
         < </a>
 </div>
 
@@ -33,7 +72,7 @@
         is a minimal and easy-to-use keyword extraction technique that leverages BERT embeddings to create keywords and
         keyphrases that are most similar to a document (Grootendorst, 2021) built upon BERT. <a
             href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00349/96482/A-Primer-in-BERTology-What-We-Know-About-How-BERT">BERT</a>
-        stands for Bidirectional Encoder Representations from Transformers and it’s a language representation model
+        stands for Bidirectional Encoder Representations from Transformers and it's a language representation model
         designed to pre-train deep bidirectional representation from unlabelled text by jointly conditioning on both
         left and right context in all layers (Jacob Devlin, 2018). More about BERT can be found <a
             href="https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270">here</a>.
@@ -59,7 +98,7 @@
 
     <p>
         To demonstrate the potential of KeyBERT I will use a snippet of code from my study and let you play with it. But
-        first here’s a brief description of the parameters:
+        first here's a brief description of the parameters:
     <ul>
         <li>
             ngram_range: Length, in words, of the extracted keywords/keyphrases - we will set this to 1 considering that
@@ -84,60 +123,11 @@
         </li>
         <li>
             candidates: Candidate keywords/keyphrases to use instead of extracting them from the document(s). We will
-            use a smaller subset of our keywords since the article’s keywords list has more than 4.5k unique values.
+            use a smaller subset of our keywords since the article's keywords list has more than 4.5k unique values.
             This strongly affect keyBERT extraction time.
         </li>
     </ul>
     </p>
-
-    <script>
-        $SCRIPT_ROOT = {{ request.script_root | tojson }};
-    </script>
-
-    <script>
-        $(function () {
-
-            $('#calculate').bind('click', function () {
-
-
-
-
-                if ($('#mmr').is(":checked")) {
-                    mmr = "True"
-                }
-                else {
-                    mmr = ""
-
-                }
-
-
-                $.getJSON($SCRIPT_ROOT + '/extract_keywords', {
-
-                    mmr: mmr,
-                    diversity: $('input[name="diversity"]').val(),
-                    top_n: $('input[name="top_n"]').val()
-                }, function (data) {
-                    $("#result").text(data.result);
-                });
-                return false;
-            });
-        });
-
-
-
-    </script>
-
-    <script>
-        $(document).ajaxStart(function () {
-            $("#loading").show();
-        });
-
-        $(document).ajaxStop(function () {
-            $("#loading").hide();
-        });
-    </script>
-
-
 
     <h2>Extracting keywords from following text:</h2>
 
@@ -146,7 +136,7 @@
         Requiring That All Foreign Travelers to U.S. Be Vaccinated The Biden administration is developing plans to
         require all foreign travelers to the United States to be vaccinated against Covid-19, with limited exceptions,
         according to an administration official with knowledge of the developing policy.Officials say the new policy is
-        being readied in the event that the United States eases its travel rules, which isn’t expected soon."
+        being readied in the event that the United States eases its travel rules, which isn't expected soon."
 
     </p>
 
@@ -197,43 +187,38 @@
     <h3>Keyword Extraction Parameters</h3>
 
 
-    <form action="/keywrod_assignment_with_keybert" method="post">
-        <div class="form-group">
-            <input class="form-control" size=5 type=text name="diversity" placeholder="diversity [0,1]" id="diversity">
+    <p><em>Note: The interactive form functionality has been removed in this static version. The original form required Flask backend processing.</em></p>
+
+    <div class="form-group">
+        <input class="form-control" size=5 type=text name="diversity" placeholder="diversity [0,1]" id="diversity" disabled>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" type=text name="top_n" placeholder="number of keywords" id="top_n" disabled>
+
+    </div>
+
+    <div class="form-group">
+        <input name="mmr" class="form-check-input" type="checkbox" id="mmr" disabled>
+        <label class="form-check-label" for="defaultCheck1">
+            MMR
+        </label>
+
+
+    </div>
+
+    <div class="evaluate">
+        <div class="submit">
+            <button type="button" id="calculate" class="btn btn-primary" disabled>Submit (Disabled in Static Version)</button>
         </div>
 
-        <div class="form-group">
-            <input class="form-control" type=text name="top_n" placeholder="number of keywords" id="top_n">
-
-        </div>
-
-        <div class="form-group">
-            <input name="mmr" class="form-check-input" type="checkbox" id="mmr">
-            <label class="form-check-label" for="defaultCheck1">
-                MMR
-            </label>
-
-
-        </div>
-
-        <div class="evaluate">
-            <div class="submit">
-                <button type="submit" id="calculate" class="btn btn-primary">Submit</button>
-            </div>
-
-            <div class="submit" id="loading" style="display:none;"><img
-                    src="{{ url_for('static', filename='img/loading.gif')}}" alt="" width="60" /></div>
-        </div>
-
-
-
-
-
-
-    </form>
+        <div class="submit" id="loading" style="display:none;"><img
+                src="static/img/loading.gif" alt="" width="60" /></div>
+    </div>
 
     <h2>Extracted Keywords:</h2>
 
+    <p><em>The keyword extraction functionality requires a Flask backend and is not available in this static version.</em></p>
 
     <samp>
         <span id=result></span>
@@ -241,4 +226,21 @@
 
 
 </div>
-{% endblock content %}
+
+    <footer>
+        <small>© 2022 Massimiliano Gargano</small>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

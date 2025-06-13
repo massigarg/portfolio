@@ -1,7 +1,46 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="arrow"> <a href="/home">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
+
+
+    <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/article.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>Massimiliano Gargano - Blockchain Transactions</title>
+
+</head>
+
+<body>
+
+<div class="arrow"> <a href="index.html">
         < </a>
 </div>
 <div class="container">
@@ -16,8 +55,8 @@
         cryptocurrencies gained popularity due to the need of a peer-to-peer electronic cash system where the trust
         could be shifted from banks and centralized institutions to crowds and cryptography. A cryptocurrency relies on
         a blockchain - continuously growing list of records called blocks, which are linked and secured using
-        cryptography. It is “an open, distributed ledger that can record transactions between two parties efficiently
-        and in a verifiable and permanent way” (Bonaventura, 2018).
+        cryptography. It is "an open, distributed ledger that can record transactions between two parties efficiently
+        and in a verifiable and permanent way" (Bonaventura, 2018).
     </p>
 
     <p>
@@ -116,7 +155,7 @@
     <h4>Transaction Output</h4>
 
     <p>
-        Bitcoin is a “transaction-centric” cryptocurrency where a transaction states explicitly from which transaction
+        Bitcoin is a "transaction-centric" cryptocurrency where a transaction states explicitly from which transaction
         it is taking the money from (txid). There are no coins, no senders, no recipients, no balances, no accounts, and
         no addresses. All these are constructed at higher level (Antonopoulos, 2018). The currency to be spent lays on
         the transaction output and all the nodes on the blockchain track all the unspent transaction outputs (UTXO).
@@ -139,7 +178,7 @@
 
     <p>
         A transaction input identify which UTXO will be consumed and provide proof of ownership trough an unlocking
-        script. Again, it is important to note how the transaction input doesn’t have explicitly stated the value of the
+        script. Again, it is important to note how the transaction input doesn't have explicitly stated the value of the
         transaction and the locking script that sets the conditions for spending it, we must use the referenced UTXO to
         obtain them.
     </p>
@@ -147,7 +186,7 @@
     <h4>Transaction Fees</h4>
 
     <p>
-        In a Bitcoin transaction an output doesn’t equal the amount of the input and it’s indeed slightly less of the
+        In a Bitcoin transaction an output doesn't equal the amount of the input and it's indeed slightly less of the
         latter because of a fee: this can be considered as an award for the Bitcoin miners for securing the network.
         Furthermore, this approach is highly affective against any attack attempt to the network because of its economic
         infeasibility. Transaction fees are calculated not on the base of the amount of the transaction but on its size
@@ -158,7 +197,7 @@
     <p>
         As said by Antonopoulos (2018) we can summarize a Bitcoin transaction saying that they move value from a
         transaction input to a transaction output. An input is a reference to a previous transaction output and is
-        showing where the value is coming from. A transaction output directs a specific value to a new owner’s Bitcoin
+        showing where the value is coming from. A transaction output directs a specific value to a new owner's Bitcoin
         address and can include a change output back to the original owner. Outputs from one transaction can be used as
         inputs in a new transaction, thus creating a chain of ownership as the value is moved from owner to owner.
     </p>
@@ -166,9 +205,9 @@
     <h4>Transaction Verification</h4>
 
     <p>
-        Bitcoin uses Proof of Work (PoW) to ensure blockchain security and consensus. “Proof of Work”, as its name
+        Bitcoin uses Proof of Work (PoW) to ensure blockchain security and consensus. "Proof of Work", as its name
         implies, requires that the decentralized participants that validate blocks show that they have invested
-        significant computing power in doing so. In Bitcoin, validators (known as “miners”) compete to process a block
+        significant computing power in doing so. In Bitcoin, validators (known as "miners") compete to process a block
         of transactions and add it to the blockchain (Bonaventura, 2018).
     </p>
 
@@ -203,19 +242,19 @@
     <p>
         In Ethereum we have two kinds of accounts: Externally Owned Account (EOA) and a Contract Account. An externally
         owned account can send messages to other externally owned accounts or to other contract accounts by creating and
-        signing a transaction using its private key, while, unlike externally owned accounts, contract accounts can’t
+        signing a transaction using its private key, while, unlike externally owned accounts, contract accounts can't
         initiate new transactions on their own (Kasireddy, 2017). Any action on the Ethereum blockchain starts from
         EOAs, and is interesting to note that a message between two externally owned accounts is simply a value
-        transfer, but a message from an externally owned account to a contract account activates the contract account’s
+        transfer, but a message from an externally owned account to a contract account activates the contract account's
         code, allowing it to perform various actions (Kasireddy, 2017).
     </p>
 
     <h4>Transaction Fees</h4>
 
     <p>
-        Transactions require a fee and must be mined to become valid (Batra, 2022). They are named “Gas”, and they are
+        Transactions require a fee and must be mined to become valid (Batra, 2022). They are named "Gas", and they are
         the unit used to measure the fees required for a particular computation. Gas price is the amount of Ether you
-        are willing to spend on every unit of gas and is measured in “gwei”. With every transaction, a sender sets a gas
+        are willing to spend on every unit of gas and is measured in "gwei". With every transaction, a sender sets a gas
         limit and gas price. The product of gas price and gas limit represents the maximum amount of Wei that the sender
         is willing to pay for executing a transaction.
     </p>
@@ -238,17 +277,17 @@
             Valid transaction nonce (nonce: count of transactions sent from that account)
         </li>
         <li>
-            The transaction’s gas limit must be equal to or greater than the intrinsic gas used by the transaction
+            The transaction's gas limit must be equal to or greater than the intrinsic gas used by the transaction
         </li>
         <li>
-            The sender’s account balance must have enough Ether to cover the “upfront” gas costs that the sender must
+            The sender's account balance must have enough Ether to cover the "upfront" gas costs that the sender must
             pay (gas limit * gas price * ETH value)
         </li>
     </ul>
 
-    If all these points are verified, we deduct the upfront cost of the transaction from the sender’s balance and we
+    If all these points are verified, we deduct the upfront cost of the transaction from the sender's balance and we
     increase his nonce by 1. At this point, we can calculate the gas remaining as the total gas limit for the
-    transaction minus the intrinsic gas used. Finally, we’re left with the new state and a set of the logs created by
+    transaction minus the intrinsic gas used. Finally, we're left with the new state and a set of the logs created by
     the transaction.
 
     </p>
@@ -269,14 +308,14 @@
     <p>
         Ripple seeks to adopt its currency XRP as the bridging currency for all global transactions; it is not mined
         like other cryptocurrencies and its network operates on a distributed ledger that uses consensus instead of
-        mining like other blockchains meaning that it isn’t susceptible to “51% attacks”. (Gunter, 2021).
+        mining like other blockchains meaning that it isn't susceptible to "51% attacks". (Gunter, 2021).
     </p>
 
     <p>
         Like Ethereum, Ripple uses a configuration model where the ledger marks systematic changes to a specific state
         of the network. These changes are referred to as transactions, and these transactions alter consensus to the
-        underlying account. Consensus is Ripple’s mechanism for achieving distributed agreement and it achieves this by
-        relying on pre-trusted nodes known as “validators” to ensure a transaction’s validity and propagate it across
+        underlying account. Consensus is Ripple's mechanism for achieving distributed agreement and it achieves this by
+        relying on pre-trusted nodes known as "validators" to ensure a transaction's validity and propagate it across
         the network. Some nodes just make and receive payments for their users while others operate as validators
         carrying out the consensus process (Cata, 2018).
     </p>
@@ -313,12 +352,12 @@
     </p>
 
     <p>
-        Every new transaction the validators “look” at the ledger, which is a snapshot of the current state of
+        Every new transaction the validators "look" at the ledger, which is a snapshot of the current state of
         transactions on the network and agree upon the current state utilizing the Ripple Protocol Consensus Algorithm
         (RPCA). Prior to verification, validators take all the valid transactions it has seen that have not yet been
-        applied to the current ledger and makes them public as a list known as the “candidate set”. Each validator then
+        applied to the current ledger and makes them public as a list known as the "candidate set". Each validator then
         groups the candidate sets of all validators on its UNL (unique node list) and votes on the accuracy of all
-        transactions. Transactions that receive more than a minimum percentage of “yes” votes are passed on to the next
+        transactions. Transactions that receive more than a minimum percentage of "yes" votes are passed on to the next
         round while transactions that do not receive enough votes will either be discarded or included in the candidate
         set for the beginning of the consensus process on the next ledger. The final round of consensus requires at
         least 80% of a validator UNL agreeing on a transaction. All transactions that meet this requirement are applied
@@ -367,7 +406,7 @@
                     <li>
                         Chowdhury, N., 2019. nside Blockchain, Bitcoin, and Cryptocurrencies. s.l.:Auerbach Publishers,
                         Incorporated.
-                        Gunter, T., 2021. The Beginner’s Guide to Ripple (XRP). [Online]
+                        Gunter, T., 2021. The Beginner's Guide to Ripple (XRP). [Online]
                         Available at: https://medium.com/geekculture/the-beginners-guide-to-ripple-xrp-cae7ff741534
                         [Accessed 03 06 2022].
                     </li>
@@ -421,4 +460,20 @@
 </div>
 
 
-{% endblock content %}
+    <footer>
+        <small>© 2022 Massimiliano Gargano</small>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
