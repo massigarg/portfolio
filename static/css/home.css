@@ -78,8 +78,10 @@ a:hover + .avatar-prompt {
 }
 
 main {
-    max-width: 500px;
+    max-width: 100%;
+    width: min(500px, 90vw);
     margin: 50px auto;
+    padding: 0 20px;
 }
 
 .blog-list {
@@ -109,26 +111,82 @@ a:hover {
 
 .readings {
     margin: 50px auto;
-    max-width: 500px;
-    height: 300px;
+    max-width: 100%;
+    width: min(500px, 90vw);
+    padding: 0 20px;
 }
 
 .books {
-    overflow: auto;
-    white-space: nowrap;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: flex;
     flex-wrap: wrap;
-    align-items: center; */
+    justify-content: center;
+    gap: 15px;
+    overflow: visible;
 }
 
 .books a {
-    margin: 6px 6px;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.books a:hover {
+    transform: scale(1.05);
 }
 
 .books a img {
-
     width: auto;
     max-height: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    main {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+    
+    .readings {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+    
+    .books a img {
+        max-height: 140px;
+    }
+    
+    .books {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+    
+    .readings {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+    
+    .books a img {
+        max-height: 120px;
+    }
+    
+    .avatar .photo img {
+        width: 150px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        text-align: center;
+    }
 }

@@ -1,5 +1,6 @@
 body {
-    margin: 30px 15px;
+    margin: 0;
+    padding: 30px 15px;
     background-color: #151b29;
     font-family: "Nunito", sans-serif;
     font-weight: normal;
@@ -12,7 +13,10 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+}
 
+* {
+    box-sizing: border-box;
 }
 
 .container {
@@ -76,6 +80,25 @@ background-color: hsl(180, 100%, 25%, 0.80);
 
 p {
     margin: 15px auto;
+}
+
+/* Responsive global styles */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+        font-size: 15px;
+        line-height: 28px;
+        letter-spacing: 1.2px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 8px;
+        font-size: 14px;
+        line-height: 26px;
+        letter-spacing: 1px;
+    }
 }
 
 
