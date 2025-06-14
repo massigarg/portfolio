@@ -3,9 +3,6 @@
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +20,10 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
-    <link rel="stylesheet" href="static/css/article.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/components.css">
+    <link rel="stylesheet" href="static/css/layout.css">
+    <link rel="stylesheet" href="static/css/pages/articles.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +39,7 @@
 <body>
 
 <div class="arrow"> <a href="index.html">
-        < </a>
+        ← </a>
 </div>
 <div class="container">
     <h1>Test-Driven Development: a gentle introduction</h1>
@@ -121,16 +119,16 @@
 
     <p>Let's write our first test function to check if the function exists:</p>
 
-    <img src="static/img/TDD/1.png" alt="">
+    <img src="static/img/TDD/1.png" alt="First test function checking if get_highest function exists">
     <p>After running this code we will have an error:</p>
 
-    <img src="static/img/TDD/error.png" alt="">
+    <img src="static/img/TDD/error.png" alt="Error message showing function does not exist">
 
     <p> This is expected since we didn't write our production code yet, but remember: You may not write production code
         unless you've first written a failing unit test!!
         Let's implement the get_highest function:</p>
 
-    <img src="static/img/TDD/2.png" alt="">
+    <img src="static/img/TDD/2.png" alt="Implementation of basic get_highest function">
 
     <p>
         Now the test gives a pass. Not how using Docstrings in our functions helps in better understanding the testing
@@ -138,50 +136,50 @@
         Let's test now if the function returns a value or not:
     </p>
 
-    <img src="static/img/TDD/3.png" alt="">
+    <img src="static/img/TDD/3.png" alt="Test checking if function returns a value">
     <p>
         As before we will get an error and we will need to update our production function:
     </p>
 
-    <img src="static/img/TDD/4.png" alt="">
+    <img src="static/img/TDD/4.png" alt="Updated function returning a simple value">
     <p>
         Let's test now that the function returns an actual value, e.g., 5:
     </p>
-    <img src="static/img/TDD/5.png" alt="">
+    <img src="static/img/TDD/5.png" alt="Test checking if function returns value 5">
 
     <p>
         In this case we have an error (even worse than a fail) and that's because we are not passing any argument in our
         function. Also we will need to update other functions call in other tests. Let's take care of this:
     </p>
 
-    <img src="static/img/TDD/6.png" alt="">
+    <img src="static/img/TDD/6.png" alt="Updated test functions with argument passing">
 
     <p>Let's test now if it returns 4:</p>
 
-    <img src="static/img/TDD/7.png" alt="">
+    <img src="static/img/TDD/7.png" alt="Test checking if function returns value 4">
     <p>After getting the error, let's update the function:</p>
 
-    <img src="static/img/TDD/8.png" alt="">
+    <img src="static/img/TDD/8.png" alt="Function implementation returning last element">
 
     <p> We kind of cheated in this case because the highest number is always at the end. Let's test if it's in the
         middle:</p>
 
-    <img src="static/img/TDD/9.png" alt="">
+    <img src="static/img/TDD/9.png" alt="Test with highest number in the middle of list">
 
     <p>
         Update the function again after getting an error:
     </p>
-    <img src="static/img/TDD/10.png" alt="">
+    <img src="static/img/TDD/10.png" alt="Updated function using max() to find highest value">
 
     <p>Now let's test if it's a string:</p>
 
 
-    <img src="static/img/TDD/11.png" alt="">
+    <img src="static/img/TDD/11.png" alt="Test with string input to check type handling">
     <p>
         Return function:
     </p>
 
-    <img src="static/img/TDD/12.png" alt="">
+    <img src="static/img/TDD/12.png" alt="Final function implementation handling different data types">
     <p>
         Later on we can add more testing function like if the number is at the beginning, if we have two number that are
         the highest etc

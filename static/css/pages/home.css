@@ -1,33 +1,6 @@
-/* nav */
+/* Home Page Specific Styles */
 
-nav {
-    text-align: right;
-    text-transform: uppercase;
-    height: 35px;
-    position: sticky;
-    top: var(--spacing-md);
-}
-
-/* Keep ABOUT button at top right on all screen sizes */
-
-.about a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition-fast);
-}
-
-.about a:hover,
-.about a:focus {
-    color: var(--color-secondary);
-    font-size: 1.05em;
-}
-
-.about a:focus {
-    border-radius: var(--radius-sm);
-}
-
-/* Image section */
-
+/* ===== AVATAR SECTION ===== */
 .avatar {
     padding: var(--spacing-md) 0;
     display: flex;
@@ -47,10 +20,18 @@ nav {
     transition: var(--transition-fast);
 }
 
+.photo a img:hover,
+.photo a:focus img {
+    border: 5px solid var(--color-primary);
+    box-shadow: 0 0 15px 1px var(--color-primary);
+    transform: translateY(-0.15em);
+}
 
+.photo a:focus {
+    border-radius: var(--radius-full);
+}
 
-/* appear text on hover */
-
+/* Avatar hover prompt */
 .avatar .avatar-prompt {
     display: none;
     position: absolute;
@@ -64,39 +45,28 @@ nav {
     text-align: center;
 }
 
-img:hover,
-.photo a:focus img {
-    border: 5px solid var(--color-primary);
-    box-shadow: 0 0 15px 1px var(--color-primary);
-    transform: translateY(-0.15em);
-}
-
-.photo a:focus {
-    border-radius: var(--radius-full);
-}
-
 a:hover + .avatar-prompt {
     display: block;
-    /* margin-left: 235px; */
-
 }
 
-main {
-    max-width: 100%;
-    width: min(800px, 95vw);
-    margin: var(--spacing-xl) auto;
-    padding: 0 var(--spacing-md);
-    animation: var(--animation-slide-up);
-    animation-delay: 0.4s;
-    animation-fill-mode: both;
+/* ===== ABOUT NAVIGATION ===== */
+.about a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
 }
 
-@media (min-width: 1200px) {
-    main {
-        width: min(1000px, 90vw);
-    }
+.about a:hover,
+.about a:focus {
+    color: var(--color-secondary);
+    font-size: 1.05em;
 }
 
+.about a:focus {
+    border-radius: var(--radius-sm);
+}
+
+/* ===== BLOG SECTION ===== */
 .blog-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -119,11 +89,7 @@ main {
     }
 }
 
-h2 {
-    margin: var(--spacing-md) auto;
-}
-
-/* Blog Cards */
+/* Blog card specific styles */
 .blog-card {
     background: linear-gradient(135deg, var(--color-surface), var(--color-surface));
     border: 2px solid var(--color-border);
@@ -221,9 +187,7 @@ h2 {
     transform: scale(1.05);
 }
 
-
-/* sliding photos */
-
+/* ===== READINGS SECTION ===== */
 .readings {
     margin: var(--spacing-xl) auto;
     max-width: 100%;
@@ -286,7 +250,7 @@ h2 {
     box-shadow: var(--shadow-sm);
 }
 
-/* Responsive breakpoints */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 @media (max-width: 768px) {
     main {
         margin: var(--spacing-lg) auto;

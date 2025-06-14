@@ -3,9 +3,6 @@
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +20,10 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
-    <link rel="stylesheet" href="static/css/article.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/components.css">
+    <link rel="stylesheet" href="static/css/layout.css">
+    <link rel="stylesheet" href="static/css/pages/articles.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +39,7 @@
 <body>
 
 <div class="arrow"> <a href="index.html">
-        < </a>
+        ← </a>
 </div>
 
 
@@ -183,46 +181,37 @@
 
 
 
-    <h3>Keyword Extraction Parameters</h3>
+    <h3>Example Keyword Extraction Results</h3>
 
-
-    <p><em>Note: The interactive form functionality has been removed in this static version. The original form required Flask backend processing.</em></p>
-
-    <div class="form-group">
-        <input class="form-control" size=5 type=text name="diversity" placeholder="diversity [0,1]" id="diversity" disabled>
-    </div>
-
-    <div class="form-group">
-        <input class="form-control" type=text name="top_n" placeholder="number of keywords" id="top_n" disabled>
-
-    </div>
-
-    <div class="form-group">
-        <input name="mmr" class="form-check-input" type="checkbox" id="mmr" disabled>
-        <label class="form-check-label" for="defaultCheck1">
-            MMR
-        </label>
-
-
-    </div>
-
-    <div class="evaluate">
-        <div class="submit">
-            <button type="button" id="calculate" class="btn btn-primary" disabled>Submit (Disabled in Static Version)</button>
-        </div>
-
-        <div class="submit" id="loading" style="display:none;"><img
-                src="static/img/loading.gif" alt="" width="60" /></div>
-    </div>
+    <p>Using KeyBERT with the following parameters on the sample text:</p>
+    <ul>
+        <li><strong>diversity:</strong> 0.2 (to find similar results)</li>
+        <li><strong>top_n:</strong> 6 (number of keywords to extract)</li>
+        <li><strong>use_mmr:</strong> True (Maximal Marginal Relevance enabled)</li>
+        <li><strong>candidates:</strong> Selected from the keyword pool with cardinality > 60</li>
+    </ul>
 
     <h2>Extracted Keywords:</h2>
 
-    <p><em>The keyword extraction functionality requires a Flask backend and is not available in this static version.</em></p>
+    <p>Based on the sample text about Biden's vaccination policy for foreign travelers, KeyBERT would extract keywords such as:</p>
+    
+    <div style="background-color: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius-md); margin: var(--spacing-md) 0;">
+        <strong>Extracted Keywords:</strong><br>
+        ['Biden, Joseph R Jr', 'Vaccination and Immunization', 'United States Politics and Government', 
+         'Travel and Vacations', 'Coronavirus (2019-nCoV)', 'Politics and Government']
+    </div>
 
-    <samp>
-        <span id=result></span>
-    </samp>
+    <p><em>Note: In the original Flask application, users could interactively adjust these parameters and see real-time keyword extraction results. This static version shows example output.</em></p>
 
+    <h2>References</h2>
+    <ul>
+        <li>Wikipedia, 2021. Keyword extraction. Available at: https://en.wikipedia.org/wiki/Keyword_extraction</li>
+        <li>Grootendorst, M., 2021. KeyBERT: Minimal keyword extraction with BERT. Available at: https://maartengr.github.io/KeyBERT/</li>
+        <li>Devlin, J., Chang, M.-W., Lee, K. & Toutanova, K., 2018. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.</li>
+        <li>10 Popular Keyword Extraction Algorithms in Natural Language Processing. Available at: https://medium.com/mlearning-ai/10-popular-keyword-extraction-algorithms-in-natural-language-processing-8975ada5750c</li>
+        <li>A Primer in BERTology: What We Know About How BERT Works. MIT Press. Available at: https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00349/96482/A-Primer-in-BERTology-What-We-Know-About-How-BERT</li>
+        <li>BERT Explained: State of the Art Language Model for NLP. Available at: https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270</li>
+    </ul>
 
 </div>
 

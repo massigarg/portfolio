@@ -1,3 +1,6 @@
+/* Base CSS - Global variables, resets, typography, and utilities */
+
+/* ===== CSS CUSTOM PROPERTIES ===== */
 :root {
     /* Color Palette */
     --color-primary: hsl(180, 100%, 25%);
@@ -55,6 +58,15 @@
     --animation-scale-in: scaleIn 0.4s ease-out;
 }
 
+/* ===== GLOBAL RESETS ===== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: var(--spacing-lg) var(--spacing-sm);
@@ -66,18 +78,161 @@ body {
     line-height: var(--line-height-base);
     letter-spacing: var(--letter-spacing-base);
     color: var(--color-text-primary);
-    box-sizing: border-box;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     animation: var(--animation-fade-in);
+    overflow-x: hidden;
 }
 
-* {
-    box-sizing: border-box;
+/* ===== TYPOGRAPHY BASE ===== */
+p {
+    margin: var(--spacing-sm) auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* Focus styles for accessibility */
+h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: var(--transition-fast);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-secondary);
+}
+
+/* Long URL handling */
+a[href*="://"] {
+    word-break: break-all;
+}
+
+/* Code styling */
+code {
+    background-color: var(--color-surface);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    color: var(--color-text-primary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+pre {
+    background-color: var(--color-surface);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin: var(--spacing-md) 0;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Lists */
+ul, ol {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.max-w-full {
+    max-width: 100%;
+}
+
+/* ===== RESPONSIVE BASE ===== */
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-md) 10px;
+        font-size: var(--font-size-md);
+        line-height: var(--line-height-md);
+        letter-spacing: var(--letter-spacing-md);
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm) var(--spacing-xs);
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-sm);
+        letter-spacing: var(--letter-spacing-sm);
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: 10px 5px;
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 0.2px;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ===== FOCUS STYLES FOR ACCESSIBILITY ===== */
 *:focus {
     outline: 2px solid var(--color-secondary);
     outline-offset: 2px;
@@ -92,49 +247,15 @@ body {
     outline-offset: 2px;
 }
 
-.container {
-    flex: 1;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: var(--spacing-md);
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
 }
 
-/* footer */
-
-footer {
-    width: 100%;
-    text-align: center;
-    color: var(--color-text-muted);
-}
-
-/* arrow to go back roght side */
-
-.arrow {
-    text-align: right;
-    font-weight: bold;
-    font-size: 18px;
-    color: var(--color-primary);
-    height: 35px;
-    position: sticky;
-    top: var(--spacing-md);
-}
-
-.arrow a {
-    text-decoration: none;
-    color: var(--color-primary);
-    transition: var(--transition-fast);
-}
-
-.arrow a:hover,
-.arrow a:focus {
-    font-size: 1.2em;
-    color: var(--color-secondary);
-}
-
-/* custom scrollbar */
+/* ===== CUSTOM SCROLLBAR ===== */
 ::-webkit-scrollbar {
     width: var(--spacing-md);
 }
@@ -154,30 +275,7 @@ footer {
     background-color: var(--color-primary);
 }
 
-p {
-    margin: var(--spacing-sm) auto;
-}
-
-/* Responsive global styles */
-@media (max-width: 768px) {
-    body {
-        padding: var(--spacing-md) 10px;
-        font-size: var(--font-size-md);
-        line-height: var(--line-height-md);
-        letter-spacing: var(--letter-spacing-md);
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: var(--spacing-sm) var(--spacing-xs);
-        font-size: var(--font-size-sm);
-        line-height: var(--line-height-sm);
-        letter-spacing: var(--letter-spacing-sm);
-    }
-}
-
-/* Keyframe Animations */
+/* ===== ANIMATION KEYFRAMES ===== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -220,7 +318,16 @@ p {
     }
 }
 
-/* Loading States */
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* ===== LOADING STATES ===== */
 .loading {
     position: relative;
     overflow: hidden;
@@ -237,18 +344,7 @@ p {
     animation: shimmer 1.5s infinite;
 }
 
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-/* Page Load Animation is already applied to body element above */
-
-/* Reduce motion for accessibility */
+/* ===== REDUCED MOTION FOR ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -257,6 +353,3 @@ p {
         scroll-behavior: auto !important;
     }
 }
-
-
-

@@ -1,0 +1,535 @@
+/* Components CSS - Reusable UI components */
+
+/* ===== NAVIGATION ARROW ===== */
+.arrow {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--color-primary);
+    height: 35px;
+    position: sticky;
+    top: var(--spacing-md);
+    display: inline-block;
+}
+
+.arrow a {
+    text-decoration: none !important;
+    color: var(--color-primary);
+    transition: var(--transition-fast);
+    display: inline-block;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    border-bottom: none !important;
+}
+
+.arrow a:hover,
+.arrow a:focus {
+    font-size: 1.2em;
+    color: var(--color-secondary);
+    transform: scale(1.1);
+    border-bottom: none !important;
+    text-decoration: none !important;
+}
+
+/* Navigation variations */
+nav .arrow {
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    nav {
+        text-align: center;
+    }
+    
+    .arrow {
+        margin-right: 5px;
+    }
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: linear-gradient(135deg, var(--color-surface), var(--color-surface));
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.card:focus-within::before {
+    opacity: 1;
+}
+
+/* Card content */
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    margin: 0 0 12px 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    color: var(--color-text-primary);
+}
+
+.card-title a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color var(--transition-base);
+}
+
+.card-title a:hover,
+.card-title a:focus {
+    color: var(--color-secondary);
+}
+
+.card-description {
+    margin: 0 0 16px 0;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Card tags */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.tag {
+    background: var(--color-primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: var(--radius-xl);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-base);
+}
+
+.tag:hover {
+    background: var(--color-secondary);
+    color: var(--color-background);
+    transform: scale(1.05);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+}
+
+.btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Button shine effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.8s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* ===== FORMS ===== */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group label {
+    display: block;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-base);
+}
+
+.form-group.focused label {
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: var(--transition-base);
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-surface);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+/* Form validation */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
+    border-color: var(--color-secondary);
+}
+
+/* Form row layout */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .form-group {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ===== FOOTER ===== */
+footer {
+    width: 100%;
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--color-border);
+}
+
+/* ===== BLOCKQUOTES ===== */
+blockquote {
+    margin: var(--spacing-lg) 0;
+    color: var(--color-text-primary);
+}
+
+blockquote p {
+    padding: var(--spacing-md);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-primary);
+    margin: 0;
+}
+
+blockquote p::before {
+    content: '\201C';
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+blockquote p::after {
+    content: '\201D';
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+/* ===== FIGURES ===== */
+figure {
+    margin: var(--spacing-md) 0;
+    text-align: center;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+    font-style: italic;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.social {
+    display: inline-block;
+    transition: var(--transition-base);
+    width: 35px;
+    height: 35px;
+}
+
+.social a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+}
+
+.social a img {
+    width: 1.8em;
+    height: 1.8em;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+    object-fit: cover;
+}
+
+.social a:hover img,
+.social a:focus img {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    width: 2.1em;
+    height: 2.1em;
+    transform: scale(1.1);
+}
+
+/* ===== CONTACT CARDS ===== */
+.contact-card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.contact-card.linkedin::before {
+    background: #0077b5;
+}
+
+.contact-card.github::before {
+    background: #333;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-border);
+    transition: var(--transition-base);
+}
+
+.contact-card:hover .contact-icon {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.contact-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.contact-info h3 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--color-text-primary);
+    font-size: 1.2em;
+}
+
+.contact-info p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+/* Mobile adjustments for contact cards */
+@media (max-width: 768px) {
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-md);
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-icon img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* ===== LOADING COMPONENTS ===== */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    margin: var(--spacing-xl) auto;
+}
+
+.loading-spinner::after {
+    content: 'Loading...';
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE COMPONENT ADJUSTMENTS ===== */
+@media (max-width: 400px) {
+    .card {
+        padding: var(--spacing-md);
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+        min-width: 160px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: var(--spacing-sm);
+    }
+}

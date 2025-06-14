@@ -3,9 +3,6 @@
 
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +20,10 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
-    <link rel="stylesheet" href="static/css/article.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/components.css">
+    <link rel="stylesheet" href="static/css/layout.css">
+    <link rel="stylesheet" href="static/css/pages/articles.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +39,7 @@
 <body>
 
 <div class="arrow"> <a href="index.html">
-        < </a>
+        ← </a>
 </div>
 <div class="container">
     <h1>Blockchain: A Gentle Introduction to Transactions</h1>
@@ -364,98 +362,22 @@
         to the ledger (Cata, 2018).
     </p>
 
-    <div id="accordion">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        References
-                    </button>
-                </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-
-                    <li>
-                        Antonopoulos, A. M., 2018. Mastering Bitcoin. 2nd ed. s.l.:O'Reilly.
-                        Batra, T., 2022. Transactions. [Online]
-                        Available at:
-                        https://ethereum.org/en/developers/docs/transactions/#:~:text=An%20Ethereum%20transaction%20refers%20to,takes%20place%20within%20a%20transaction.
-                        [Accessed 03 05 2022].
-
-                    </li>
-
-                    <li>
-                        Bonaventura, A., 2018. Demystifying Blockchain and Consensus Mechanisms — Everything You Wanted
-                        to
-                        Know But Were Never Told. [Online]
-                        Available at:
-                        https://medium.com/oracledevs/demystifying-blockchain-and-consensus-mechanisms-everything-you-wanted-to-know-but-were-never-aabe62145128
-                        [Accessed 03 06 2022].
-                    </li>
-
-                    <li>
-                        Cata, J., 2018. Everything to know about Ripple — Part 1: How Ripple Works. [Online]
-                        Available at:
-                        https://medium.com/@jcata018/everything-to-know-about-ripple-part-1-how-ripple-works-f7404aa4a8d1
-                        [Accessed 04 06 2022].
-                    </li>
-
-                    <li>
-                        Chowdhury, N., 2019. nside Blockchain, Bitcoin, and Cryptocurrencies. s.l.:Auerbach Publishers,
-                        Incorporated.
-                        Gunter, T., 2021. The Beginner's Guide to Ripple (XRP). [Online]
-                        Available at: https://medium.com/geekculture/the-beginners-guide-to-ripple-xrp-cae7ff741534
-                        [Accessed 03 06 2022].
-                    </li>
-
-                    <li>
-                        Investopedia, 2022. Bitcoin vs. Ripple: What's the Difference?. [Online]
-                        Available at: https://www.investopedia.com/tech/whats-difference-between-bitcoin-and-ripple/
-                        [Accessed 04 06 2022].
-                    </li>
-
-                    <li>
-                        Kasireddy, P., 2017. How does Ethereum work, anyway?. [Online]
-                        Available at: https://preethikasireddy.medium.com/how-does-ethereum-work-anyway-22d1df506369
-                        [Accessed 31 05 2022].
-                    </li>
-
-                    <li>
-                        Kendzicky, J., 2018. Ripple (XRP) Analysis. [Online]
-                        Available at: https://medium.com/@jkendzicky16/ripple-xrp-analysis-cc4f440d0604
-                        [Accessed 03 06 2022].
-                    </li>
-
-                    <li>
-                        Smith, C., 2022. PROOF-OF-STAKE (POS). [Online]
-                        Available at: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/
-                        [Accessed 03 06 2022].
-                    </li>
-
-                    <li>
-                        Wikipedia, 2022. Bitcoin. [Online]
-                        Available at: https://en.wikipedia.org/wiki/Bitcoin
-                        [Accessed 30 05 2022].
-                    </li>
-
-                    <li>
-                        Wikipedia, 2022. Financial transaction. [Online]
-                        Available at: https://en.wikipedia.org/wiki/Financial_transaction
-                    </li>
-
-                    <li>
-                        XRP Ledger, 2022. Transaction Basics. [Online]
-                        Available at: https://xrpl.org/transaction-basics.html
-                        [Accessed 04 06 2022].
-                    </li>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    <h2>References</h2>
+    <ul>
+        <li>Antonopoulos, A. M., 2018. Mastering Bitcoin. 2nd ed. O'Reilly.</li>
+        <li>Batra, T., 2022. Transactions. Available at: https://ethereum.org/en/developers/docs/transactions/</li>
+        <li>Bonaventura, A., 2018. Demystifying Blockchain and Consensus Mechanisms — Everything You Wanted to Know But Were Never Told. Available at: https://medium.com/oracledevs/demystifying-blockchain-and-consensus-mechanisms-everything-you-wanted-to-know-but-were-never-aabe62145128</li>
+        <li>Cata, J., 2018. Everything to know about Ripple — Part 1: How Ripple Works. Available at: https://medium.com/@jcata018/everything-to-know-about-ripple-part-1-how-ripple-works-f7404aa4a8d1</li>
+        <li>Chowdhury, N., 2019. Inside Blockchain, Bitcoin, and Cryptocurrencies. Auerbach Publishers.</li>
+        <li>Gunter, T., 2021. The Beginner's Guide to Ripple (XRP). Available at: https://medium.com/geekculture/the-beginners-guide-to-ripple-xrp-cae7ff741534</li>
+        <li>Investopedia, 2022. Bitcoin vs. Ripple: What's the Difference? Available at: https://www.investopedia.com/tech/whats-difference-between-bitcoin-and-ripple/</li>
+        <li>Kasireddy, P., 2017. How does Ethereum work, anyway? Available at: https://preethikasireddy.medium.com/how-does-ethereum-work-anyway-22d1df506369</li>
+        <li>Kendzicky, J., 2018. Ripple (XRP) Analysis. Available at: https://medium.com/@jkendzicky16/ripple-xrp-analysis-cc4f440d0604</li>
+        <li>Smith, C., 2022. Proof-of-Stake (PoS). Available at: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/</li>
+        <li>Wikipedia, 2022. Bitcoin. Available at: https://en.wikipedia.org/wiki/Bitcoin</li>
+        <li>Wikipedia, 2022. Financial transaction. Available at: https://en.wikipedia.org/wiki/Financial_transaction</li>
+        <li>XRP Ledger, 2022. Transaction Basics. Available at: https://xrpl.org/transaction-basics.html</li>
+    </ul>
 
 </div>
 
