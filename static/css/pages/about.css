@@ -102,47 +102,30 @@
 }
 
 .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
     margin: var(--spacing-xl) auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
     padding: var(--spacing-md);
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) transparent;
     width: 100%;
     max-width: 1200px;
-    scroll-behavior: smooth;
     animation: var(--animation-fade-in);
     animation-delay: 0.7s;
     animation-fill-mode: both;
 }
 
-.projects::-webkit-scrollbar {
-    height: 8px;
-}
-
-.projects::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.projects::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary);
-    border-radius: var(--radius-sm);
-}
 
 /* Project cards */
 .card {
-    margin: var(--spacing-md);
     box-sizing: border-box;
-    width: 220px;
     border: 3px solid var(--color-border);
     border-radius: var(--radius-lg);
     background: linear-gradient(135deg, var(--color-surface), var(--color-surface));
-    display: inline-block;
-    vertical-align: top;
     transition: var(--transition-base);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card::before {
@@ -476,21 +459,11 @@
     }
 
     .projects {
-        overflow-x: auto;
-        white-space: nowrap;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: var(--spacing-md);
         padding: var(--spacing-md) 0;
         margin: var(--spacing-lg) auto;
         width: 100%;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .card {
-        width: 280px;
-        min-width: 280px;
-        margin: var(--spacing-md);
-        display: inline-block;
-        flex-shrink: 0;
-        box-sizing: border-box;
     }
 
     .skill-wrapper {
@@ -609,24 +582,12 @@
     }
 
     .projects {
-        overflow-x: hidden;
-        white-space: normal;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
         gap: var(--spacing-md);
         margin: var(--spacing-md) auto;
         padding: var(--spacing-sm);
         width: 100%;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .card {
-        display: block;
-        width: 90%;
-        max-width: 300px;
-        margin: var(--spacing-sm) auto;
-        box-sizing: border-box;
+        max-width: 350px;
     }
 
     .path {
@@ -702,9 +663,9 @@
         width: 100px;
     }
 
-    .card {
-        width: 95%;
-        margin: var(--spacing-xs) auto;
+    .projects {
+        max-width: 300px;
+        gap: var(--spacing-sm);
     }
 
     .skill-bar {
