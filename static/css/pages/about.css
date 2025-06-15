@@ -375,7 +375,54 @@
     line-height: 1.4;
 }
 
-/* ===== SKILLS SECTION ===== */
+/* ===== SOFT SKILLS SECTION ===== */
+.my-soft-skills {
+    margin: var(--spacing-xl) auto;
+    max-width: 800px;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 2.5em;
+    animation: var(--animation-slide-up);
+    animation-delay: 0.8s;
+    animation-fill-mode: both;
+}
+
+.soft-skills-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-lg);
+    max-width: 800px;
+    width: 100%;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 500px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    animation: var(--animation-fade-in);
+    animation-delay: 1s;
+    animation-fill-mode: both;
+}
+
+.chart-wrapper:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+#softSkillsChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ===== TECHNICAL SKILLS SECTION ===== */
 .my-skills {
     margin: var(--spacing-xl) auto;
     max-width: 800px;
@@ -383,7 +430,7 @@
     color: var(--color-primary);
     font-size: 2.5em;
     animation: var(--animation-slide-up);
-    animation-delay: 1s;
+    animation-delay: 1.2s;
     animation-fill-mode: both;
 }
 
@@ -566,6 +613,35 @@
         margin: var(--spacing-md) auto;
         width: 100%;
         max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .soft-skills-container {
+        padding: var(--spacing-md);
+        max-width: 100%;
+    }
+    
+    .chart-wrapper {
+        height: 450px;
+        max-width: 600px;
+        padding: var(--spacing-md);
+    }
+    
+    .my-soft-skills {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-wrapper {
+        height: 400px;
+        max-width: 500px;
+        padding: var(--spacing-sm);
+    }
+    
+    .my-soft-skills {
+        font-size: 1.8em;
     }
 }
 

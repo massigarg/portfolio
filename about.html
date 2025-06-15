@@ -18,7 +18,7 @@
 
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
 
     <!-- Open Graph Tags -->
     <meta property="og:title" content="About Massimiliano Gargano - Data Scientist">
@@ -34,6 +34,9 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="static/css/base.css">
@@ -291,8 +294,15 @@
             </div>
         </div>
 
-        <!-- Skills -->
-        <h1 class="my-skills">Skills</h1>
+        <!-- Soft Skills -->
+        <h1 class="my-soft-skills">Soft Skills</h1>
+
+        <div class="soft-skills-container">
+            <canvas id="softSkillsChart"></canvas>
+        </div>
+
+        <!-- Technical Skills -->
+        <h1 class="my-skills">Technical Skills</h1>
 
         <div class="skill-wrapper">
             <div class="skill-bar col-1">
@@ -357,6 +367,82 @@
 
     <!-- JS -->
     <script src="static/js/footer.js"></script>
+
+    <!-- Soft Skills Chart -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('softSkillsChart').getContext('2d');
+
+            const softSkillsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Project Management',
+                        'Stakeholder Management',
+                        'Team Leadership',
+                        'Communication',
+                        'Problem Solving',
+                        'Strategic Thinking',
+                        'Adaptability',
+                        'Time Management'
+                    ],
+                    datasets: [{
+                        label: 'Skill Level',
+                        data: [85, 90, 80, 88, 92, 85, 90, 85],
+                        backgroundColor: 'hsla(180, 100%, 25%, 0.2)',
+                        borderColor: 'hsl(180, 100%, 25%)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'hsl(180, 100%, 25%)',
+                        pointBorderColor: 'hsl(180, 100%, 25%)',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0,
+                            ticks: {
+                                display: false
+                            },
+                            grid: {
+                                color: 'hsla(0, 0%, 98%, 0.2)'
+                            },
+                            angleLines: {
+                                color: 'hsla(0, 0%, 98%, 0.2)'
+                            },
+                            pointLabels: {
+                                color: 'hsla(0, 0%, 98%, 0.87)',
+                                font: {
+                                    size: 14,
+                                    weight: '500'
+                                }
+                            }
+                        }
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.0
+                        }
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
