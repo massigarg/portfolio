@@ -91,7 +91,7 @@
 
 /* ===== PROJECTS SECTION ===== */
 .my-projects {
-    margin: var(--spacing-xl) auto;
+    margin: var(--spacing-xl) auto var(--spacing-md);
     max-width: 800px;
     text-align: center;
     color: var(--color-primary);
@@ -245,7 +245,7 @@
 
 /* ===== TIMELINE SECTION ===== */
 .path {
-    margin: var(--spacing-xl) auto;
+    margin: var(--spacing-xl) auto var(--spacing-md);
     max-width: 800px;
     text-align: center;
     color: var(--color-primary);
@@ -377,7 +377,7 @@
 
 /* ===== SOFT SKILLS SECTION ===== */
 .my-soft-skills {
-    margin: var(--spacing-xl) auto;
+    margin: var(--spacing-xl) auto var(--spacing-md);
     max-width: 800px;
     text-align: center;
     color: var(--color-primary);
@@ -391,8 +391,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: var(--spacing-xl) auto;
-    padding: var(--spacing-lg);
+    margin: var(--spacing-sm) auto;
+    padding: 0;
     max-width: 800px;
     width: 100%;
 }
@@ -404,7 +404,7 @@
     height: 500px;
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
     box-shadow: var(--shadow-md);
     transition: var(--transition-base);
     animation: var(--animation-fade-in);
@@ -424,7 +424,7 @@
 
 /* ===== TECHNICAL SKILLS SECTION ===== */
 .my-skills {
-    margin: var(--spacing-xl) auto;
+    margin: var(--spacing-xl) auto var(--spacing-md);
     max-width: 800px;
     text-align: center;
     color: var(--color-primary);
@@ -618,28 +618,33 @@
 
 @media (max-width: 768px) {
     .soft-skills-container {
-        padding: var(--spacing-md);
+        padding: 0;
         max-width: 100%;
+        margin: var(--spacing-xs) auto;
     }
-    
+
     .chart-wrapper {
         height: 450px;
         max-width: 600px;
-        padding: var(--spacing-md);
+        padding: var(--spacing-xs);
     }
-    
+
     .my-soft-skills {
         font-size: 2em;
     }
 }
 
 @media (max-width: 480px) {
+    .soft-skills-container {
+        margin: var(--spacing-xs) auto;
+    }
+    
     .chart-wrapper {
         height: 400px;
         max-width: 500px;
-        padding: var(--spacing-sm);
+        padding: var(--spacing-xs);
     }
-    
+
     .my-soft-skills {
         font-size: 1.8em;
     }
