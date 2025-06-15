@@ -13,7 +13,7 @@
     --color-text-muted: hsla(0, 0%, 98%, 0.65);
     --color-border: hsl(180, 100%, 25%, 0.3);
     --color-shadow: rgba(0, 0, 0, 0.2);
-    
+
     /* Typography */
     --font-family: "Nunito", sans-serif;
     --font-size-base: 16px;
@@ -27,31 +27,31 @@
     --letter-spacing-base: 0.5px;
     --letter-spacing-sm: 0.3px;
     --letter-spacing-md: 0.4px;
-    
+
     /* Spacing */
-    --spacing-xs: 8px;
-    --spacing-sm: 15px;
-    --spacing-md: 20px;
-    --spacing-lg: 30px;
-    --spacing-xl: 50px;
-    
+    --spacing-xs: 4px;
+    --spacing-sm: 7.5px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 25px;
+
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 16px;
     --radius-xl: 20px;
     --radius-full: 50%;
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-base: 0.3s ease;
     --transition-slow: 0.5s ease;
-    
+
     /* Shadows */
     --shadow-sm: 0 4px 8px var(--color-shadow);
     --shadow-md: 0 8px 16px var(--color-shadow);
     --shadow-lg: 0 12px 24px var(--color-shadow);
-    
+
     /* Animations */
     --animation-fade-in: fadeIn 0.6s ease-out;
     --animation-slide-up: slideUp 0.5s ease-out;
@@ -92,7 +92,12 @@ p {
     overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -151,7 +156,8 @@ img {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -259,7 +265,7 @@ textarea:focus {
 ::-webkit-scrollbar {
     width: var(--spacing-md);
 }
-    
+
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
@@ -281,6 +287,7 @@ textarea:focus {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -292,6 +299,7 @@ textarea:focus {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -303,6 +311,7 @@ textarea:focus {
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -310,9 +319,12 @@ textarea:focus {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -322,6 +334,7 @@ textarea:focus {
     0% {
         left: -100%;
     }
+
     100% {
         left: 100%;
     }
@@ -346,7 +359,10 @@ textarea:focus {
 
 /* ===== REDUCED MOTION FOR ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;

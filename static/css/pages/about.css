@@ -199,17 +199,49 @@
 }
 
 /* Tag color schemes */
-#nlp { background-color: hsl(173, 58%, 39%); }
-#sql { background-color: hsl(43, 74%, 66%); }
-#ml { background-color: hsl(12, 76%, 61%); }
-#flask { background-color: hsl(39, 100%, 47%); }
-#html { background-color: hsl(160, 41%, 70%); }
-#css { background-color: hsl(45, 60%, 78%); }
-#python { background-color: hsl(19, 97%, 37%); }
-#time-series { background-color: hsl(152, 41%, 52%); }
-#classification { background-color: hsl(278, 100%, 36%); }
-#regression { background-color: hsl(217, 100%, 56%); }
-#spark { background-color: hsl(12, 98%, 44%); }
+#nlp {
+    background-color: hsl(173, 58%, 39%);
+}
+
+#sql {
+    background-color: hsl(43, 74%, 66%);
+}
+
+#ml {
+    background-color: hsl(12, 76%, 61%);
+}
+
+#flask {
+    background-color: hsl(39, 100%, 47%);
+}
+
+#html {
+    background-color: hsl(160, 41%, 70%);
+}
+
+#css {
+    background-color: hsl(45, 60%, 78%);
+}
+
+#python {
+    background-color: hsl(19, 97%, 37%);
+}
+
+#time-series {
+    background-color: hsl(152, 41%, 52%);
+}
+
+#classification {
+    background-color: hsl(278, 100%, 36%);
+}
+
+#regression {
+    background-color: hsl(217, 100%, 56%);
+}
+
+#spark {
+    background-color: hsl(12, 98%, 44%);
+}
 
 /* ===== TIMELINE SECTION ===== */
 .path {
@@ -280,7 +312,7 @@
     left: 50%;
 }
 
-.left::before {
+/* .left::before {
     content: " ";
     height: 0;
     position: absolute;
@@ -304,7 +336,7 @@
     border: medium solid var(--color-secondary);
     border-width: 10px 10px 10px 0;
     border-color: transparent var(--color-secondary) transparent transparent;
-}
+} */
 
 .right::after {
     left: -14px;
@@ -424,16 +456,55 @@
 }
 
 /* Skill progress bars with consistent colors */
-.html { width: 90%; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); }
-.css { width: 80%; background: linear-gradient(90deg, var(--color-secondary), var(--color-accent)); }
-.python { width: 95%; background: linear-gradient(90deg, var(--color-accent), var(--color-primary)); }
-.flask { width: 65%; background: linear-gradient(90deg, var(--color-primary), var(--color-accent)); }
-.sql { width: 85%; background: linear-gradient(90deg, var(--color-secondary), var(--color-primary)); }
-.scraping { width: 90%; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); }
-.nlp { width: 80%; background: linear-gradient(90deg, var(--color-secondary), var(--color-accent)); }
-.ml { width: 85%; background: linear-gradient(90deg, var(--color-accent), var(--color-primary)); }
-.dviz { width: 90%; background: linear-gradient(90deg, var(--color-primary), var(--color-accent)); }
-.dpl { width: 70%; background: linear-gradient(90deg, var(--color-secondary), var(--color-primary)); }
+.html {
+    width: 90%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.css {
+    width: 80%;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+}
+
+.python {
+    width: 95%;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+}
+
+.flask {
+    width: 65%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.sql {
+    width: 85%;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+}
+
+.scraping {
+    width: 90%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.nlp {
+    width: 80%;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+}
+
+.ml {
+    width: 85%;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+}
+
+.dviz {
+    width: 90%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.dpl {
+    width: 70%;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+}
 
 /* ===== RESPONSIVE DESIGN ===== */
 

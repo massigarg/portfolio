@@ -3,23 +3,27 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com https://formspree.io; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io;">
-    
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com https://formspree.io; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io;">
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Contact Massimiliano Gargano - Data Scientist. Get in touch for data science projects, collaborations, or professional inquiries.">
-    <meta name="keywords" content="Contact Massimiliano Gargano, Data Scientist Contact, Portfolio Contact, Professional Inquiry">
+    <meta name="description"
+        content="Contact Massimiliano Gargano - Data Scientist. Get in touch for data science projects, collaborations, or professional inquiries.">
+    <meta name="keywords"
+        content="Contact Massimiliano Gargano, Data Scientist Contact, Portfolio Contact, Professional Inquiry">
     <meta name="author" content="Massimiliano Gargano">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Contact Massimiliano Gargano - Data Scientist">
-    <meta property="og:description" content="Get in touch with Massimiliano Gargano for data science projects, collaborations, or professional inquiries.">
+    <meta property="og:description"
+        content="Get in touch with Massimiliano Gargano for data science projects, collaborations, or professional inquiries.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://massigarg.github.io/portfolio/contact.html">
     <meta property="og:image" content="https://massigarg.github.io/portfolio/static/img/me_3.jpg">
@@ -60,7 +64,7 @@
         <header class="contact-header">
             <h1 class="contact-main-title">Get In Touch</h1>
             <p class="contact-subtitle">
-                Have a project in mind or just want to connect? I'd love to hear from you. 
+                Have a project in mind or just want to connect? I'd love to hear from you.
                 Send me a message and I'll get back to you as soon as possible.
             </p>
         </header>
@@ -71,39 +75,41 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required maxlength="100" pattern="[A-Za-z\s\-']{2,100}">
+                        <input type="text" id="name" name="name" required maxlength="100"
+                            pattern="[A-Za-z\s\-']{2,100}">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required maxlength="254">
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="subject">Subject</label>
                     <input type="text" id="subject" name="subject" required maxlength="200">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required maxlength="2000" placeholder="Tell me about your project or inquiry..."></textarea>
+                    <textarea id="message" name="message" rows="6" required maxlength="2000"
+                        placeholder="Tell me about your project or inquiry..."></textarea>
                 </div>
-                
+
                 <button type="submit" class="submit-btn">
                     <span>Send Message</span>
                     <svg class="send-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="m22 2-7 20-4-9-9-4 20-7z"/>
+                        <path d="m22 2-7 20-4-9-9-4 20-7z" />
                     </svg>
                 </button>
             </form>
         </section>
 
         <!-- Alternative Contact Methods -->
-        <section class="contact-alternatives">
+        <!-- <section class="contact-alternatives">
             <h2>Other Ways to Connect</h2>
             <p>Prefer a different approach? You can also reach me through these platforms:</p>
-            
+
             <div class="contact-grid">
                 <a href="https://www.linkedin.com/in/massimiliano-gargano/?locale=en_US" class="contact-card linkedin">
                     <div class="contact-icon">
@@ -114,7 +120,7 @@
                         <p>Professional networking and career discussions</p>
                     </div>
                 </a>
-
+                
                 <a href="https://github.com/massigarg" class="contact-card github">
                     <div class="contact-icon">
                         <img src="static/img/github.png" alt="GitHub">
@@ -125,10 +131,10 @@
                     </div>
                 </a>
             </div>
-        </section>
+        </section> -->
 
         <!-- Response Information -->
-        <section class="response-info">
+        <!-- <section class="response-info">
             <div class="info-card">
                 <h3>Response Time</h3>
                 <p>I typically respond to inquiries within <strong>24-48 hours</strong>. For urgent matters, LinkedIn might be faster.</p>
@@ -138,14 +144,11 @@
                 <h3>Project Inquiries</h3>
                 <p>Please include project details, timeline, and budget range for the most accurate response.</p>
             </div>
-        </section>
+        </section> -->
     </div>
 
-    <footer>
-        <small>© 2022 Massimiliano Gargano</small>
-    </footer>
-
     <!-- JS -->
+    <script src="static/js/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
@@ -156,14 +159,14 @@
     <!-- Form Enhancement Script -->
     <script>
         // Enhanced form submission with feedback
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', function (e) {
             const button = document.querySelector('.submit-btn');
             const originalText = button.innerHTML;
-            
+
             // Show loading state
             button.innerHTML = '<span>Sending...</span>';
             button.disabled = true;
-            
+
             // Reset after timeout (in case form submission takes time)
             setTimeout(() => {
                 button.innerHTML = originalText;
@@ -173,11 +176,11 @@
 
         // Form field animation on focus
         document.querySelectorAll('input, textarea').forEach(field => {
-            field.addEventListener('focus', function() {
+            field.addEventListener('focus', function () {
                 this.parentElement.classList.add('focused');
             });
-            
-            field.addEventListener('blur', function() {
+
+            field.addEventListener('blur', function () {
                 if (!this.value) {
                     this.parentElement.classList.remove('focused');
                 }
