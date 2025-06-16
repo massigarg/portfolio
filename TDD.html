@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
@@ -38,149 +39,160 @@
 
 <body>
 
-<div class="arrow"> <a href="index.html">
-        ← </a>
-</div>
-<div class="container">
-    <h1>Test-Driven Development: a gentle introduction</h1>
-    <p>
-        While keeping on analyzing the <a href="https://github.com/massigarg/NYT-news-analysis">NYT news</a>, I decided
-        to apply a more robust approach to my
-        functions
-        and particularly to the text pre-processing transformer. At the beginning of my coding experience, considering
-        using
-        a TDD approach was just a remote idea, you don't think about it only when you start changing some peace of code
-        and
-        things break. Unfortunately, I understood how important it is only when it was too late. But let's go straight
-        to the point and see what TDD is about:
-    </p>
+    <div class="arrow"> <a href="index.html">
+            ← </a>
+    </div>
+    <div class="container">
+        <h1>Test-Driven Development: a gentle introduction</h1>
+        <p>
+            While keeping on analyzing the <a href="https://github.com/massigarg/NYT-news-analysis">NYT news</a>, I
+            decided
+            to apply a more robust approach to my
+            functions
+            and particularly to the text pre-processing transformer. At the beginning of my coding experience,
+            considering
+            using
+            a TDD approach was just a remote idea, you don't think about it only when you start changing some peace of
+            code
+            and
+            things break. Unfortunately, I understood how important it is only when it was too late. But let's go
+            straight
+            to the point and see what TDD is about:
+        </p>
 
-    <p>
-        Test-driven development (TDD) is a software development process relying on software requirements being
-        converted
-        to
-        test cases before software is fully developed and tracking all software development by repeatedly
-        testing the
-        software against all test cases. <b>This is as opposed to software being developed first and test cases
-            created
-            later. </b> (Wikipedia, 2022)
+        <p>
+            Test-driven development (TDD) is a software development process relying on software requirements being
+            converted
+            to
+            test cases before software is fully developed and tracking all software development by repeatedly
+            testing the
+            software against all test cases. <b>This is as opposed to software being developed first and test cases
+                created
+                later. </b> (Wikipedia, 2022)
 
-    </p>
+        </p>
 
-    <p>
-        Tests are written in advance of source-code development. This means that before we write any code for our
-        program,
-        we're going to write some tests. That's the first thing that really flips it on its head compared to maybe more
-        traditional methods of software development. The idea is that before you've written anything, you've written a
-        test.
-    </p>
-    <figure>
-        <img src="static/img/TDD/TDD.png" alt="TDD">
-        <figcaption>TDD loop - <a href="https://aulasoftwarelibre.github.io/taller-de-python/Testing/TDD/">source</a>
-        </figcaption>
-    </figure>
+        <p>
+            Tests are written in advance of source-code development. This means that before we write any code for our
+            program,
+            we're going to write some tests. That's the first thing that really flips it on its head compared to maybe
+            more
+            traditional methods of software development. The idea is that before you've written anything, you've written
+            a
+            test.
+        </p>
+        <figure>
+            <img src="static/img/TDD/TDD.png" alt="TDD">
+            <figcaption>TDD loop - <a
+                    href="https://aulasoftwarelibre.github.io/taller-de-python/Testing/TDD/">source</a>
+            </figcaption>
+        </figure>
 
-    <p>
-        But who coined the phrase? Well, it was Beck who wrote a book in 1999 called Extreme Programming, and test
-        driven
-        development was part of this new kind of way of programming and doing management, which was referred to as
-        extreme
-        programming. The key feature I think of this text is the idea of feedback and iteration. What we mean with
-        extreme
-        programming is the idea of being able to do very quick iterated cycles of programming, where there's a clear
-        feedback cycle.
-    </p>
-
-
-    <p>
-        The three pillars of TDD are:
-    <ol>
-        <li>
-            You may not write production code unless you've first written a failing unit test.
-        </li>
-        <li>
-            You may not write more of a unit test than is sufficient to fail.
-        </li>
-        <li>
-            You may not write more production code than is sufficient to make the failing unit test pass.
-        </li>
-    </ol>
-    (Three laws of unit-testing according to Uncle Bob, the reference: Martin, R.C.
-    'Professionalism and Test-Driven Development', IEEE Software 24(3) 2007, pp.32–36.)
-
-    </p>
-
-    <p>To demonstrate an example pf TDD we will build a function that returns the maximum value of a list without using
-        any
-        framework and test it using <b>unittest</b> module. But the first question we need to ask ourselves is:
-        <strong>does
-            the function return something?</strong>
-    </p>
-
-    <p>Let's write our first test function to check if the function exists:</p>
-
-    <img src="static/img/TDD/1.png" alt="First test function checking if get_highest function exists">
-    <p>After running this code we will have an error:</p>
-
-    <img src="static/img/TDD/error.png" alt="Error message showing function does not exist">
-
-    <p> This is expected since we didn't write our production code yet, but remember: You may not write production code
-        unless you've first written a failing unit test!!
-        Let's implement the get_highest function:</p>
-
-    <img src="static/img/TDD/2.png" alt="Implementation of basic get_highest function">
-
-    <p>
-        Now the test gives a pass. Not how using Docstrings in our functions helps in better understanding the testing
-        function and its result.
-        Let's test now if the function returns a value or not:
-    </p>
-
-    <img src="static/img/TDD/3.png" alt="Test checking if function returns a value">
-    <p>
-        As before we will get an error and we will need to update our production function:
-    </p>
-
-    <img src="static/img/TDD/4.png" alt="Updated function returning a simple value">
-    <p>
-        Let's test now that the function returns an actual value, e.g., 5:
-    </p>
-    <img src="static/img/TDD/5.png" alt="Test checking if function returns value 5">
-
-    <p>
-        In this case we have an error (even worse than a fail) and that's because we are not passing any argument in our
-        function. Also we will need to update other functions call in other tests. Let's take care of this:
-    </p>
-
-    <img src="static/img/TDD/6.png" alt="Updated test functions with argument passing">
-
-    <p>Let's test now if it returns 4:</p>
-
-    <img src="static/img/TDD/7.png" alt="Test checking if function returns value 4">
-    <p>After getting the error, let's update the function:</p>
-
-    <img src="static/img/TDD/8.png" alt="Function implementation returning last element">
-
-    <p> We kind of cheated in this case because the highest number is always at the end. Let's test if it's in the
-        middle:</p>
-
-    <img src="static/img/TDD/9.png" alt="Test with highest number in the middle of list">
-
-    <p>
-        Update the function again after getting an error:
-    </p>
-    <img src="static/img/TDD/10.png" alt="Updated function using max() to find highest value">
-
-    <p>Now let's test if it's a string:</p>
+        <p>
+            But who coined the phrase? Well, it was Beck who wrote a book in 1999 called Extreme Programming, and test
+            driven
+            development was part of this new kind of way of programming and doing management, which was referred to as
+            extreme
+            programming. The key feature I think of this text is the idea of feedback and iteration. What we mean with
+            extreme
+            programming is the idea of being able to do very quick iterated cycles of programming, where there's a clear
+            feedback cycle.
+        </p>
 
 
-    <img src="static/img/TDD/11.png" alt="Test with string input to check type handling">
-    <p>
-        Return function:
-    </p>
+        <p>
+            The three pillars of TDD are:
+        <ol>
+            <li>
+                You may not write production code unless you've first written a failing unit test.
+            </li>
+            <li>
+                You may not write more of a unit test than is sufficient to fail.
+            </li>
+            <li>
+                You may not write more production code than is sufficient to make the failing unit test pass.
+            </li>
+        </ol>
+        (Three laws of unit-testing according to Uncle Bob, the reference: Martin, R.C.
+        'Professionalism and Test-Driven Development', IEEE Software 24(3) 2007, pp.32–36.)
 
-    <img src="static/img/TDD/12.png" alt="Final function implementation handling different data types">
-    <p>
+        </p>
+
+        <p>To demonstrate an example pf TDD we will build a function that returns the maximum value of a list without
+            using
+            any
+            framework and test it using <b>unittest</b> module. But the first question we need to ask ourselves is:
+            <strong>does
+                the function return something?</strong>
+        </p>
+
+        <p>Let's write our first test function to check if the function exists:</p>
+
+        <img src="static/img/TDD/1.png" alt="First test function checking if get_highest function exists">
+        <p>After running this code we will have an error:</p>
+
+        <img src="static/img/TDD/error.png" alt="Error message showing function does not exist">
+
+        <p> This is expected since we didn't write our production code yet, but remember: You may not write production
+            code
+            unless you've first written a failing unit test!!
+            Let's implement the get_highest function:</p>
+
+        <img src="static/img/TDD/2.png" alt="Implementation of basic get_highest function">
+
+        <p>
+            Now the test gives a pass. Not how using Docstrings in our functions helps in better understanding the
+            testing
+            function and its result.
+            Let's test now if the function returns a value or not:
+        </p>
+
+        <img src="static/img/TDD/3.png" alt="Test checking if function returns a value">
+        <p>
+            As before we will get an error and we will need to update our production function:
+        </p>
+
+        <img src="static/img/TDD/4.png" alt="Updated function returning a simple value">
+        <p>
+            Let's test now that the function returns an actual value, e.g., 5:
+        </p>
+        <img src="static/img/TDD/5.png" alt="Test checking if function returns value 5">
+
+        <p>
+            In this case we have an error (even worse than a fail) and that's because we are not passing any argument in
+            our
+            function. Also we will need to update other functions call in other tests. Let's take care of this:
+        </p>
+
+        <img src="static/img/TDD/6.png" alt="Updated test functions with argument passing">
+
+        <p>Let's test now if it returns 4:</p>
+
+        <img src="static/img/TDD/7.png" alt="Test checking if function returns value 4">
+        <p>After getting the error, let's update the function:</p>
+
+        <img src="static/img/TDD/8.png" alt="Function implementation returning last element">
+
+        <p> We kind of cheated in this case because the highest number is always at the end. Let's test if it's in the
+            middle:</p>
+
+        <img src="static/img/TDD/9.png" alt="Test with highest number in the middle of list">
+
+        <p>
+            Update the function again after getting an error:
+        </p>
+        <img src="static/img/TDD/10.png" alt="Updated function using max() to find highest value">
+
+        <p>Now let's test if it's a string:</p>
+
+
+        <img src="static/img/TDD/11.png" alt="Test with string input to check type handling">
+        <p>
+            Return function:
+        </p>
+
+        <img src="static/img/TDD/12.png" alt="Final function implementation handling different data types">
+        <!--     <p>
         Later on we can add more testing function like if the number is at the beginning, if we have two number that are
         the highest etc
         The finar result should look like this:
@@ -188,15 +200,15 @@
 
     <div class="git">
         <script src="https://gist.github.com/massigarg/0467f1c39980d12b174d93c62f43e984.js"></script>
+    </div> -->
+
+
+        <p>
+            Even if tedious, TDD is fundamental and it can save a lot of headaches before putting anything
+            in production.
+        </p>
+
     </div>
-
-
-    <p>
-        Even if tedious, TDD is fundamental and it can save a lot of headaches before putting anything
-        in production.
-    </p>
-
-</div>
 
 
     <!-- JS -->

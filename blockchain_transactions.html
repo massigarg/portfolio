@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
@@ -38,348 +39,419 @@
 
 <body>
 
-<div class="arrow"> <a href="index.html">
-        ← </a>
-</div>
-<div class="container">
-    <h1>Blockchain: A Gentle Introduction to Transactions</h1>
+    <div class="arrow"> <a href="index.html">
+            ← </a>
+    </div>
+    <div class="container">
+        <h1>Blockchain: A Gentle Introduction to Transactions</h1>
+        <img src="static/img/bitcoin/bitcoin_2.png" alt="Bitcoin VS Ehtereum VS Ripple">
 
-    <br>
+        <br>
 
-    <h2>Introduction</h2>
+        <h2>Introduction</h2>
 
-    <p>
-        A cryptocurrency transaction is to all effects a financial transaction. After the 2008 financial crisis,
-        cryptocurrencies gained popularity due to the need of a peer-to-peer electronic cash system where the trust
-        could be shifted from banks and centralized institutions to crowds and cryptography. A cryptocurrency relies on
-        a blockchain - continuously growing list of records called blocks, which are linked and secured using
-        cryptography. It is "an open, distributed ledger that can record transactions between two parties efficiently
-        and in a verifiable and permanent way" (Bonaventura, 2018).
-    </p>
+        <p>
+            A cryptocurrency transaction is to all effects a financial transaction. After the 2008 financial crisis,
+            cryptocurrencies gained popularity due to the need of a peer-to-peer electronic cash system where the trust
+            could be shifted from banks and centralized institutions to crowds and cryptography. A cryptocurrency relies
+            on
+            a blockchain - continuously growing list of records called blocks, which are linked and secured using
+            cryptography. It is "an open, distributed ledger that can record transactions between two parties
+            efficiently
+            and in a verifiable and permanent way" (Bonaventura, 2018).
+        </p>
 
-    <p>
-        Although a blockchain is a decentralized peer-to-peer system with no central authority, it still has some
-        questions to be answered:
-    <ul>
-        <li>
-            Identity Problem
-        </li>
+        <p>
+            Although a blockchain is a decentralized peer-to-peer system with no central authority, it still has some
+            questions to be answered:
         <ul>
             <li>
-                How do we know that the sender initiated the transaction?
+                Identity Problem
+            </li>
+            <ul>
+                <li>
+                    How do we know that the sender initiated the transaction?
 
+                </li>
+                <li>
+                    How do we stop the sender from later denying he sent the money?
+                </li>
+            </ul>
+
+            <li>
+                Right Address Problem
+            </li>
+            <ul>
+                <li>
+                    How do we know that the recipient receives the money?
+                </li>
+            </ul>
+            <li>
+                Money Availability
+            </li>
+            <ul>
+                <li>
+                    How do we know that the sender has the money?
+                </li>
+                <li>
+                    How do we know that no money is being created in the transaction?
+                </li>
+                <li>
+                    How do we know that the sender is not double spending the money?
+                </li>
+            </ul>
+        </ul>
+        </p>
+
+        <p>
+            We will try to answer these questions describing different transaction mechanisms for various
+            cryptocurrencies,
+            giving particular emphasis to Bitcoin, and then briefly analysing other currencies such as Ethereum and
+            Ripple.
+        </p>
+
+        <h2>Bitcoin Transactions</h2>
+
+        <p>
+            Bitcoin consists of (Antonopoulos, 2018):
+        <ul>
+            <li>
+                A decentralized peer-to-peer network (Bitcoin protocol)
             </li>
             <li>
-                How do we stop the sender from later denying he sent the money?
+                A public transaction ledger (the blockchain)
+            </li>
+            <li>
+                A set of rules for independent transaction validation and currency issuance (consensus rules)
+            </li>
+            <li>
+                A mechanism for reaching global decentralized consensus on the valid blockchain (Proof-of-Work
+                algorithm)
             </li>
         </ul>
 
-        <li>
-            Right Address Problem
-        </li>
+        In Bitcoin users can prove the ownership of their digital currency by their keys. Transactions are verified by
+        the
+        network nodes (miners) through cryptography and recorded in a public distributed ledger called blockchain
+        (Wikipedia, 2022). A transaction tells the network that the owner of some Bitcoin has authorized the transfer of
+        that value to another owner (Antonopoulos, 2018). It is constituted by an input and an output.
+        </p>
+
+        <p>
+            An input has two main parts:
+        <ol>
+            <li>
+                Output of the previous transaction (Txid, Vout)
+            </li>
+            <li>
+                Signature of the person sending the money (scriptSig)
+            </li>
+        </ol>
+        An output has two main parts as well:
+        <ol>
+            <li>
+                Amount of money being transferred
+            </li>
+            <li>
+                Conditions under which the money can be received and determined by a cryptographic puzzle (scriptPubKey)
+            </li>
+        </ol>
+        </p>
+
+        <h4>Transaction Output</h4>
+
+        <p>
+            Bitcoin is a "transaction-centric" cryptocurrency where a transaction states explicitly from which
+            transaction
+            it is taking the money from (txid). There are no coins, no senders, no recipients, no balances, no accounts,
+            and
+            no addresses. All these are constructed at higher level (Antonopoulos, 2018). The currency to be spent lays
+            on
+            the transaction output and all the nodes on the blockchain track all the unspent transaction outputs (UTXO).
+            From a user perspective, their sum is the balance of their wallet.
+        </p>
+
+        <p>
+            The amount of cryptocurrency in a transaction output can be any multiple of a satoshi (the smallest
+            denomination
+            of Bitcoin that can be recorded on the blockchain) and once created it is a discrete and indivisible
+            quantity
+            that can only be spent in its entire amount. This fundamental characteristic implies that in the occurrence
+            that
+            the value of a transaction is less than the UTXO, change will need to be generated. Usually, to satisfy the
+            required transaction amount, wallets applications retrieve all the UTXOs that adds up to that amount or more
+            and
+            complete the transaction. In any case, a transaction consumes a previously recorded UTXO and creates a new
+            transaction output that can be consumed by a future transaction (Antonopoulos, 2018). Moreover, there is a
+            special case where a transaction can be created without spending a UTXO: it is called the Coinbase and
+            happen if
+            and only if it is the first transaction of a block.
+        </p>
+
+        <h4>Transaction Input</h4>
+
+        <p>
+            A transaction input identify which UTXO will be consumed and provide proof of ownership trough an unlocking
+            script. Again, it is important to note how the transaction input doesn't have explicitly stated the value of
+            the
+            transaction and the locking script that sets the conditions for spending it, we must use the referenced UTXO
+            to
+            obtain them.
+        </p>
+
+        <h4>Transaction Fees</h4>
+
+        <p>
+            In a Bitcoin transaction an output doesn't equal the amount of the input and it's indeed slightly less of
+            the
+            latter because of a fee: this can be considered as an award for the Bitcoin miners for securing the network.
+            Furthermore, this approach is highly affective against any attack attempt to the network because of its
+            economic
+            infeasibility. Transaction fees are calculated not on the base of the amount of the transaction but on its
+            size
+            in kilobytes and that their weight affect the processing priority of the blocks to be mined (Antonopoulos,
+            2018).
+        </p>
+
+        <p>
+            As said by Antonopoulos (2018) we can summarize a Bitcoin transaction saying that they move value from a
+            transaction input to a transaction output. An input is a reference to a previous transaction output and is
+            showing where the value is coming from. A transaction output directs a specific value to a new owner's
+            Bitcoin
+            address and can include a change output back to the original owner. Outputs from one transaction can be used
+            as
+            inputs in a new transaction, thus creating a chain of ownership as the value is moved from owner to owner.
+        </p>
+
+        <h4>Transaction Verification</h4>
+
+        <p>
+            Bitcoin uses Proof of Work (PoW) to ensure blockchain security and consensus. "Proof of Work", as its name
+            implies, requires that the decentralized participants that validate blocks show that they have invested
+            significant computing power in doing so. In Bitcoin, validators (known as "miners") compete to process a
+            block
+            of transactions and add it to the blockchain (Bonaventura, 2018).
+        </p>
+
+        <p>
+            Both the locking script on the UTXO and the unlocking script to validate a transaction are written in a
+            language
+            called Script. It is not a general-purpose language, and it cannot do many of the things that modern
+            programs
+            do. This is an intentional security feature that ensures that the language is not Touring Complete avoiding
+            infinite loops and possible attacks to the network (Antonopoulos, 2018). Bitcoin validation relies on two
+            types
+            of scripts to validate a transaction: a locking script and an unlocking script. The locking script (or
+            scriptPubKey) is the spending condition placed on an output while the unlocking script (scriptSig) solves
+            the
+            conditions placed on an output and allows the output to be spent (Antonopoulos, 2018). Every node can
+            validate a
+            transaction and it is done by executing the unlocking and locking scripts together and in sequence.
+        </p>
+
+        <h2>Ethereum Transactions</h2>
+
+        <p>
+            One of the features of Bitcoin is that it relies on a Forth-like stack-based scripting system that is not
+            Touring-complete. Even if the Script language offers a high level of security, it is not flexible in writing
+            more complicated contracts. With this limitation in mind, a new blockchain platform that is Touring-complete
+            has
+            been implemented, enabling the possibility to write contracts, named smart-contracts, using a high-level
+            programming language (Chowdhury, 2019).
+        </p>
+
+        <p>
+            The Ethereum blockchain is essentially a transaction-based state machine, where, based on those inputs, will
+            transition to a new state; the correct current state is a single global truth, which everyone must accept.
+            To
+            cause a transition from one state to the next, a transaction must be valid, and it must go through a
+            validation
+            process known as mining (Kasireddy, 2017).
+        </p>
+
+        <p>
+            In Ethereum we have two kinds of accounts: Externally Owned Account (EOA) and a Contract Account. An
+            externally
+            owned account can send messages to other externally owned accounts or to other contract accounts by creating
+            and
+            signing a transaction using its private key, while, unlike externally owned accounts, contract accounts
+            can't
+            initiate new transactions on their own (Kasireddy, 2017). Any action on the Ethereum blockchain starts from
+            EOAs, and is interesting to note that a message between two externally owned accounts is simply a value
+            transfer, but a message from an externally owned account to a contract account activates the contract
+            account's
+            code, allowing it to perform various actions (Kasireddy, 2017).
+        </p>
+
+        <h4>Transaction Fees</h4>
+
+        <p>
+            Transactions require a fee and must be mined to become valid (Batra, 2022). They are named "Gas", and they
+            are
+            the unit used to measure the fees required for a particular computation. Gas price is the amount of Ether
+            you
+            are willing to spend on every unit of gas and is measured in "gwei". With every transaction, a sender sets a
+            gas
+            limit and gas price. The product of gas price and gas limit represents the maximum amount of Wei that the
+            sender
+            is willing to pay for executing a transaction.
+        </p>
+
+        <h4>
+            Transaction Process
+        </h4>
+
+        <p>
+            For a transaction to happen, the following conditions must be satisfied:
+
         <ul>
             <li>
-                How do we know that the recipient receives the money?
+                Transaction needs to be RLP formatted (the format Ethereum uses to serialize objects)
+            </li>
+            <li>
+                There must be a valid transaction signature
+            </li>
+            <li>
+                Valid transaction nonce (nonce: count of transactions sent from that account)
+            </li>
+            <li>
+                The transaction's gas limit must be equal to or greater than the intrinsic gas used by the transaction
+            </li>
+            <li>
+                The sender's account balance must have enough Ether to cover the "upfront" gas costs that the sender
+                must
+                pay (gas limit * gas price * ETH value)
             </li>
         </ul>
-        <li>
-            Money Availability
-        </li>
+
+        If all these points are verified, we deduct the upfront cost of the transaction from the sender's balance and we
+        increase his nonce by 1. At this point, we can calculate the gas remaining as the total gas limit for the
+        transaction minus the intrinsic gas used. Finally, we're left with the new state and a set of the logs created
+        by
+        the transaction.
+
+        </p>
+
+        <p>
+            As for Bitcoin, a transaction needs to be signed using the sender's private key. This proves that the
+            transaction could only have come from the sender and was not sent fraudulently. Additionally, with the
+            signature
+            hash, the transaction can be cryptographically proven that it came from the sender and submitted to the
+            network
+            (Batra, 2022). Ethereum has used PoW for security and consensus since its genesis but is moving to
+            Proof-of-Stake (PoS). This is because PoS is thought to be more secure, less energy-intensive, and enables
+            new
+            scaling solutions to be implemented. Also, in PoS, validators explicitly stake capital in the form of ether
+            into
+            a smart contract on Ethereum. This staked ether then acts as collateral that can be destroyed if the
+            validator
+            behaves dishonestly or lazily (Smith, 2022).
+        </p>
+
+        <h2>Ripple Transactions</h2>
+
+        <p>
+            Ripple seeks to adopt its currency XRP as the bridging currency for all global transactions; it is not mined
+            like other cryptocurrencies and its network operates on a distributed ledger that uses consensus instead of
+            mining like other blockchains meaning that it isn't susceptible to "51% attacks". (Gunter, 2021).
+        </p>
+
+        <p>
+            Like Ethereum, Ripple uses a configuration model where the ledger marks systematic changes to a specific
+            state
+            of the network. These changes are referred to as transactions, and these transactions alter consensus to the
+            underlying account. Consensus is Ripple's mechanism for achieving distributed agreement and it achieves this
+            by
+            relying on pre-trusted nodes known as "validators" to ensure a transaction's validity and propagate it
+            across
+            the network. Some nodes just make and receive payments for their users while others operate as validators
+            carrying out the consensus process (Cata, 2018).
+        </p>
+
+        <h4>Transaction Process</h4>
+
+        <p>
+            A transaction is the only way to modify the XRP Ledger and are only final if signed, submitted, and accepted
+            into a validated ledger version following the consensus process (XRP Ledger, 2022). Every signed transaction
+            is
+            hashed, and this can be used as proof of payment since anybody can look up the transaction by its hash to
+            verify
+            its final status. Transactions included in a ledger destroy some XRP as a transaction cost and the exact
+            amount
+            of XRP to destroy is defined by the signed transaction instructions. Transactions that fail are also
+            included in
+            ledgers because they modify balances of XRP to pay for the anti-spam transaction cost (XRP Ledger, 2022).
+        </p>
+
+        <p>
+            Only signed transactions can be submitted to the network and included in a validated ledger. A signed
+            transaction is immutable: its contents cannot change, and the signature is not valid for any other
+            transaction
+            (XRP Ledger, 2022).
+        </p>
+
+        <p>
+            The process of sending a transaction has different steps:
+        <ol>
+            <li>Creation of unsigned transaction</li>
+            <li>Sign the transaction with one or more signatures</li>
+            <li>Submit the transaction</li>
+            <li>The consensus mechanism agree on which provisional transaction gets included in the next validation
+                ledger
+            </li>
+            <li>Application of the transaction to the ledger by different servers (validators)</li>
+            <li>If enough trusted validators created the exact same ledger, the ledger is declared validated and
+                immutable
+            </li>
+        </ol>
+        </p>
+
+        <p>
+            Every new transaction the validators "look" at the ledger, which is a snapshot of the current state of
+            transactions on the network and agree upon the current state utilizing the Ripple Protocol Consensus
+            Algorithm
+            (RPCA). Prior to verification, validators take all the valid transactions it has seen that have not yet been
+            applied to the current ledger and makes them public as a list known as the "candidate set". Each validator
+            then
+            groups the candidate sets of all validators on its UNL (unique node list) and votes on the accuracy of all
+            transactions. Transactions that receive more than a minimum percentage of "yes" votes are passed on to the
+            next
+            round while transactions that do not receive enough votes will either be discarded or included in the
+            candidate
+            set for the beginning of the consensus process on the next ledger. The final round of consensus requires at
+            least 80% of a validator UNL agreeing on a transaction. All transactions that meet this requirement are
+            applied
+            to the ledger (Cata, 2018).
+        </p>
+
+        <h2>References</h2>
         <ul>
-            <li>
-                How do we know that the sender has the money?
+            <li>Antonopoulos, A. M., 2018. Mastering Bitcoin. 2nd ed. O'Reilly.</li>
+            <li>Batra, T., 2022. Transactions. Available at: https://ethereum.org/en/developers/docs/transactions/</li>
+            <li>Bonaventura, A., 2018. Demystifying Blockchain and Consensus Mechanisms — Everything You Wanted to Know
+                But Were Never Told. Available at:
+                https://medium.com/oracledevs/demystifying-blockchain-and-consensus-mechanisms-everything-you-wanted-to-know-but-were-never-aabe62145128
             </li>
-            <li>
-                How do we know that no money is being created in the transaction?
-            </li>
-            <li>
-                How do we know that the sender is not double spending the money?
-            </li>
+            <li>Cata, J., 2018. Everything to know about Ripple — Part 1: How Ripple Works. Available at:
+                https://medium.com/@jcata018/everything-to-know-about-ripple-part-1-how-ripple-works-f7404aa4a8d1</li>
+            <li>Chowdhury, N., 2019. Inside Blockchain, Bitcoin, and Cryptocurrencies. Auerbach Publishers.</li>
+            <li>Gunter, T., 2021. The Beginner's Guide to Ripple (XRP). Available at:
+                https://medium.com/geekculture/the-beginners-guide-to-ripple-xrp-cae7ff741534</li>
+            <li>Investopedia, 2022. Bitcoin vs. Ripple: What's the Difference? Available at:
+                https://www.investopedia.com/tech/whats-difference-between-bitcoin-and-ripple/</li>
+            <li>Kasireddy, P., 2017. How does Ethereum work, anyway? Available at:
+                https://preethikasireddy.medium.com/how-does-ethereum-work-anyway-22d1df506369</li>
+            <li>Kendzicky, J., 2018. Ripple (XRP) Analysis. Available at:
+                https://medium.com/@jkendzicky16/ripple-xrp-analysis-cc4f440d0604</li>
+            <li>Smith, C., 2022. Proof-of-Stake (PoS). Available at:
+                https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/</li>
+            <li>Wikipedia, 2022. Bitcoin. Available at: https://en.wikipedia.org/wiki/Bitcoin</li>
+            <li>Wikipedia, 2022. Financial transaction. Available at:
+                https://en.wikipedia.org/wiki/Financial_transaction</li>
+            <li>XRP Ledger, 2022. Transaction Basics. Available at: https://xrpl.org/transaction-basics.html</li>
         </ul>
-    </ul>
-    </p>
 
-    <p>
-        We will try to answer these questions describing different transaction mechanisms for various cryptocurrencies,
-        giving particular emphasis to Bitcoin, and then briefly analysing other currencies such as Ethereum and Ripple.
-    </p>
-
-    <h2>Bitcoin Transactions</h2>
-
-    <p>
-        Bitcoin consists of (Antonopoulos, 2018):
-    <ul>
-        <li>
-            A decentralized peer-to-peer network (Bitcoin protocol)
-        </li>
-        <li>
-            A public transaction ledger (the blockchain)
-        </li>
-        <li>
-            A set of rules for independent transaction validation and currency issuance (consensus rules)
-        </li>
-        <li>
-            A mechanism for reaching global decentralized consensus on the valid blockchain (Proof-of-Work algorithm)
-        </li>
-    </ul>
-
-    In Bitcoin users can prove the ownership of their digital currency by their keys. Transactions are verified by the
-    network nodes (miners) through cryptography and recorded in a public distributed ledger called blockchain
-    (Wikipedia, 2022). A transaction tells the network that the owner of some Bitcoin has authorized the transfer of
-    that value to another owner (Antonopoulos, 2018). It is constituted by an input and an output.
-    </p>
-
-    <p>
-        An input has two main parts:
-    <ol>
-        <li>
-            Output of the previous transaction (Txid, Vout)
-        </li>
-        <li>
-            Signature of the person sending the money (scriptSig)
-        </li>
-    </ol>
-    An output has two main parts as well:
-    <ol>
-        <li>
-            Amount of money being transferred
-        </li>
-        <li>
-            Conditions under which the money can be received and determined by a cryptographic puzzle (scriptPubKey)
-        </li>
-    </ol>
-    </p>
-
-    <h4>Transaction Output</h4>
-
-    <p>
-        Bitcoin is a "transaction-centric" cryptocurrency where a transaction states explicitly from which transaction
-        it is taking the money from (txid). There are no coins, no senders, no recipients, no balances, no accounts, and
-        no addresses. All these are constructed at higher level (Antonopoulos, 2018). The currency to be spent lays on
-        the transaction output and all the nodes on the blockchain track all the unspent transaction outputs (UTXO).
-        From a user perspective, their sum is the balance of their wallet.
-    </p>
-
-    <p>
-        The amount of cryptocurrency in a transaction output can be any multiple of a satoshi (the smallest denomination
-        of Bitcoin that can be recorded on the blockchain) and once created it is a discrete and indivisible quantity
-        that can only be spent in its entire amount. This fundamental characteristic implies that in the occurrence that
-        the value of a transaction is less than the UTXO, change will need to be generated. Usually, to satisfy the
-        required transaction amount, wallets applications retrieve all the UTXOs that adds up to that amount or more and
-        complete the transaction. In any case, a transaction consumes a previously recorded UTXO and creates a new
-        transaction output that can be consumed by a future transaction (Antonopoulos, 2018). Moreover, there is a
-        special case where a transaction can be created without spending a UTXO: it is called the Coinbase and happen if
-        and only if it is the first transaction of a block.
-    </p>
-
-    <h4>Transaction Input</h4>
-
-    <p>
-        A transaction input identify which UTXO will be consumed and provide proof of ownership trough an unlocking
-        script. Again, it is important to note how the transaction input doesn't have explicitly stated the value of the
-        transaction and the locking script that sets the conditions for spending it, we must use the referenced UTXO to
-        obtain them.
-    </p>
-
-    <h4>Transaction Fees</h4>
-
-    <p>
-        In a Bitcoin transaction an output doesn't equal the amount of the input and it's indeed slightly less of the
-        latter because of a fee: this can be considered as an award for the Bitcoin miners for securing the network.
-        Furthermore, this approach is highly affective against any attack attempt to the network because of its economic
-        infeasibility. Transaction fees are calculated not on the base of the amount of the transaction but on its size
-        in kilobytes and that their weight affect the processing priority of the blocks to be mined (Antonopoulos,
-        2018).
-    </p>
-
-    <p>
-        As said by Antonopoulos (2018) we can summarize a Bitcoin transaction saying that they move value from a
-        transaction input to a transaction output. An input is a reference to a previous transaction output and is
-        showing where the value is coming from. A transaction output directs a specific value to a new owner's Bitcoin
-        address and can include a change output back to the original owner. Outputs from one transaction can be used as
-        inputs in a new transaction, thus creating a chain of ownership as the value is moved from owner to owner.
-    </p>
-
-    <h4>Transaction Verification</h4>
-
-    <p>
-        Bitcoin uses Proof of Work (PoW) to ensure blockchain security and consensus. "Proof of Work", as its name
-        implies, requires that the decentralized participants that validate blocks show that they have invested
-        significant computing power in doing so. In Bitcoin, validators (known as "miners") compete to process a block
-        of transactions and add it to the blockchain (Bonaventura, 2018).
-    </p>
-
-    <p>
-        Both the locking script on the UTXO and the unlocking script to validate a transaction are written in a language
-        called Script. It is not a general-purpose language, and it cannot do many of the things that modern programs
-        do. This is an intentional security feature that ensures that the language is not Touring Complete avoiding
-        infinite loops and possible attacks to the network (Antonopoulos, 2018). Bitcoin validation relies on two types
-        of scripts to validate a transaction: a locking script and an unlocking script. The locking script (or
-        scriptPubKey) is the spending condition placed on an output while the unlocking script (scriptSig) solves the
-        conditions placed on an output and allows the output to be spent (Antonopoulos, 2018). Every node can validate a
-        transaction and it is done by executing the unlocking and locking scripts together and in sequence.
-    </p>
-
-    <h2>Ethereum Transactions</h2>
-
-    <p>
-        One of the features of Bitcoin is that it relies on a Forth-like stack-based scripting system that is not
-        Touring-complete. Even if the Script language offers a high level of security, it is not flexible in writing
-        more complicated contracts. With this limitation in mind, a new blockchain platform that is Touring-complete has
-        been implemented, enabling the possibility to write contracts, named smart-contracts, using a high-level
-        programming language (Chowdhury, 2019).
-    </p>
-
-    <p>
-        The Ethereum blockchain is essentially a transaction-based state machine, where, based on those inputs, will
-        transition to a new state; the correct current state is a single global truth, which everyone must accept. To
-        cause a transition from one state to the next, a transaction must be valid, and it must go through a validation
-        process known as mining (Kasireddy, 2017).
-    </p>
-
-    <p>
-        In Ethereum we have two kinds of accounts: Externally Owned Account (EOA) and a Contract Account. An externally
-        owned account can send messages to other externally owned accounts or to other contract accounts by creating and
-        signing a transaction using its private key, while, unlike externally owned accounts, contract accounts can't
-        initiate new transactions on their own (Kasireddy, 2017). Any action on the Ethereum blockchain starts from
-        EOAs, and is interesting to note that a message between two externally owned accounts is simply a value
-        transfer, but a message from an externally owned account to a contract account activates the contract account's
-        code, allowing it to perform various actions (Kasireddy, 2017).
-    </p>
-
-    <h4>Transaction Fees</h4>
-
-    <p>
-        Transactions require a fee and must be mined to become valid (Batra, 2022). They are named "Gas", and they are
-        the unit used to measure the fees required for a particular computation. Gas price is the amount of Ether you
-        are willing to spend on every unit of gas and is measured in "gwei". With every transaction, a sender sets a gas
-        limit and gas price. The product of gas price and gas limit represents the maximum amount of Wei that the sender
-        is willing to pay for executing a transaction.
-    </p>
-
-    <h4>
-        Transaction Process
-    </h4>
-
-    <p>
-        For a transaction to happen, the following conditions must be satisfied:
-
-    <ul>
-        <li>
-            Transaction needs to be RLP formatted (the format Ethereum uses to serialize objects)
-        </li>
-        <li>
-            There must be a valid transaction signature
-        </li>
-        <li>
-            Valid transaction nonce (nonce: count of transactions sent from that account)
-        </li>
-        <li>
-            The transaction's gas limit must be equal to or greater than the intrinsic gas used by the transaction
-        </li>
-        <li>
-            The sender's account balance must have enough Ether to cover the "upfront" gas costs that the sender must
-            pay (gas limit * gas price * ETH value)
-        </li>
-    </ul>
-
-    If all these points are verified, we deduct the upfront cost of the transaction from the sender's balance and we
-    increase his nonce by 1. At this point, we can calculate the gas remaining as the total gas limit for the
-    transaction minus the intrinsic gas used. Finally, we're left with the new state and a set of the logs created by
-    the transaction.
-
-    </p>
-
-    <p>
-        As for Bitcoin, a transaction needs to be signed using the sender's private key. This proves that the
-        transaction could only have come from the sender and was not sent fraudulently. Additionally, with the signature
-        hash, the transaction can be cryptographically proven that it came from the sender and submitted to the network
-        (Batra, 2022). Ethereum has used PoW for security and consensus since its genesis but is moving to
-        Proof-of-Stake (PoS). This is because PoS is thought to be more secure, less energy-intensive, and enables new
-        scaling solutions to be implemented. Also, in PoS, validators explicitly stake capital in the form of ether into
-        a smart contract on Ethereum. This staked ether then acts as collateral that can be destroyed if the validator
-        behaves dishonestly or lazily (Smith, 2022).
-    </p>
-
-    <h2>Ripple Transactions</h2>
-
-    <p>
-        Ripple seeks to adopt its currency XRP as the bridging currency for all global transactions; it is not mined
-        like other cryptocurrencies and its network operates on a distributed ledger that uses consensus instead of
-        mining like other blockchains meaning that it isn't susceptible to "51% attacks". (Gunter, 2021).
-    </p>
-
-    <p>
-        Like Ethereum, Ripple uses a configuration model where the ledger marks systematic changes to a specific state
-        of the network. These changes are referred to as transactions, and these transactions alter consensus to the
-        underlying account. Consensus is Ripple's mechanism for achieving distributed agreement and it achieves this by
-        relying on pre-trusted nodes known as "validators" to ensure a transaction's validity and propagate it across
-        the network. Some nodes just make and receive payments for their users while others operate as validators
-        carrying out the consensus process (Cata, 2018).
-    </p>
-
-    <h4>Transaction Process</h4>
-
-    <p>
-        A transaction is the only way to modify the XRP Ledger and are only final if signed, submitted, and accepted
-        into a validated ledger version following the consensus process (XRP Ledger, 2022). Every signed transaction is
-        hashed, and this can be used as proof of payment since anybody can look up the transaction by its hash to verify
-        its final status. Transactions included in a ledger destroy some XRP as a transaction cost and the exact amount
-        of XRP to destroy is defined by the signed transaction instructions. Transactions that fail are also included in
-        ledgers because they modify balances of XRP to pay for the anti-spam transaction cost (XRP Ledger, 2022).
-    </p>
-
-    <p>
-        Only signed transactions can be submitted to the network and included in a validated ledger. A signed
-        transaction is immutable: its contents cannot change, and the signature is not valid for any other transaction
-        (XRP Ledger, 2022).
-    </p>
-
-    <p>
-        The process of sending a transaction has different steps:
-    <ol>
-        <li>Creation of unsigned transaction</li>
-        <li>Sign the transaction with one or more signatures</li>
-        <li>Submit the transaction</li>
-        <li>The consensus mechanism agree on which provisional transaction gets included in the next validation ledger
-        </li>
-        <li>Application of the transaction to the ledger by different servers (validators)</li>
-        <li>If enough trusted validators created the exact same ledger, the ledger is declared validated and immutable
-        </li>
-    </ol>
-    </p>
-
-    <p>
-        Every new transaction the validators "look" at the ledger, which is a snapshot of the current state of
-        transactions on the network and agree upon the current state utilizing the Ripple Protocol Consensus Algorithm
-        (RPCA). Prior to verification, validators take all the valid transactions it has seen that have not yet been
-        applied to the current ledger and makes them public as a list known as the "candidate set". Each validator then
-        groups the candidate sets of all validators on its UNL (unique node list) and votes on the accuracy of all
-        transactions. Transactions that receive more than a minimum percentage of "yes" votes are passed on to the next
-        round while transactions that do not receive enough votes will either be discarded or included in the candidate
-        set for the beginning of the consensus process on the next ledger. The final round of consensus requires at
-        least 80% of a validator UNL agreeing on a transaction. All transactions that meet this requirement are applied
-        to the ledger (Cata, 2018).
-    </p>
-
-    <h2>References</h2>
-    <ul>
-        <li>Antonopoulos, A. M., 2018. Mastering Bitcoin. 2nd ed. O'Reilly.</li>
-        <li>Batra, T., 2022. Transactions. Available at: https://ethereum.org/en/developers/docs/transactions/</li>
-        <li>Bonaventura, A., 2018. Demystifying Blockchain and Consensus Mechanisms — Everything You Wanted to Know But Were Never Told. Available at: https://medium.com/oracledevs/demystifying-blockchain-and-consensus-mechanisms-everything-you-wanted-to-know-but-were-never-aabe62145128</li>
-        <li>Cata, J., 2018. Everything to know about Ripple — Part 1: How Ripple Works. Available at: https://medium.com/@jcata018/everything-to-know-about-ripple-part-1-how-ripple-works-f7404aa4a8d1</li>
-        <li>Chowdhury, N., 2019. Inside Blockchain, Bitcoin, and Cryptocurrencies. Auerbach Publishers.</li>
-        <li>Gunter, T., 2021. The Beginner's Guide to Ripple (XRP). Available at: https://medium.com/geekculture/the-beginners-guide-to-ripple-xrp-cae7ff741534</li>
-        <li>Investopedia, 2022. Bitcoin vs. Ripple: What's the Difference? Available at: https://www.investopedia.com/tech/whats-difference-between-bitcoin-and-ripple/</li>
-        <li>Kasireddy, P., 2017. How does Ethereum work, anyway? Available at: https://preethikasireddy.medium.com/how-does-ethereum-work-anyway-22d1df506369</li>
-        <li>Kendzicky, J., 2018. Ripple (XRP) Analysis. Available at: https://medium.com/@jkendzicky16/ripple-xrp-analysis-cc4f440d0604</li>
-        <li>Smith, C., 2022. Proof-of-Stake (PoS). Available at: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/</li>
-        <li>Wikipedia, 2022. Bitcoin. Available at: https://en.wikipedia.org/wiki/Bitcoin</li>
-        <li>Wikipedia, 2022. Financial transaction. Available at: https://en.wikipedia.org/wiki/Financial_transaction</li>
-        <li>XRP Ledger, 2022. Transaction Basics. Available at: https://xrpl.org/transaction-basics.html</li>
-    </ul>
-
-</div>
+    </div>
 
 
     <!-- JS -->
