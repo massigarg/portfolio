@@ -549,7 +549,7 @@
 }
 
 .dpl {
-    width: 70%;
+    width: 80%;
     background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
 }
 
@@ -638,7 +638,7 @@
     .soft-skills-container {
         margin: var(--spacing-xs) auto;
     }
-    
+
     .chart-wrapper {
         height: 400px;
         max-width: 500px;
